@@ -28,8 +28,8 @@
 
         /* Page 1 Styles */
         .page1 {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('./images/background.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('./images/background.jpg');
             background-size: cover;
             background-position: center;
             justify-content: center;
@@ -45,7 +45,7 @@
         .welcome-content h1 {
             font-size: 3rem;
             margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .register-btn {
@@ -57,18 +57,18 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
         }
 
         .register-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
         }
 
         /* Page 2 Styles */
         .page2 {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('./images/background.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('./images/background.jpg');
             background-size: cover;
             background-position: center;
             justify-content: center;
@@ -80,7 +80,7 @@
             background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             max-width: 800px;
             width: 100%;
             max-height: 95vh;
@@ -204,13 +204,13 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(40,167,69,0.3);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
         }
 
         /* Page 3 Styles */
         .page3 {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('./images/background.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('./images/background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -223,10 +223,10 @@
         .thank-you-content {
             text-align: center;
             color: white;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             padding: 60px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             max-width: 600px;
         }
 
@@ -254,7 +254,7 @@
 
         .back-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(108,117,125,0.3);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
         }
 
         .required {
@@ -265,11 +265,11 @@
             .form-row {
                 flex-direction: column;
             }
-            
+
             .welcome-content h1 {
                 font-size: 2rem;
             }
-            
+
             .form-container {
                 padding: 20px;
                 margin: 10px;
@@ -281,8 +281,9 @@
     <!-- Page 1: Welcome Page -->
     <div class="page page1 active" id="page1">
         <div class="welcome-content">
-            <h1>Welcome to Our Event</h1>
-            <button class="register-btn" onclick="goToPage(2)">Click Here to Register</button>
+            <h1>Welcome to</h1>
+            <h1>The Great Indian RoadShow 2.0</h1>
+            <button class="register-btn" onclick="goToPage(2)">Click to fill the form</button>
         </div>
     </div>
 
@@ -291,50 +292,138 @@
         <div class="form-container">
             <div class="logo">
                 <!-- Your company logo -->
-                <h2>Event Registration</h2>
+                <h2>Great Indian RoadShow 2.0</h2>
                 <img src="./images/logo.jpg" alt="Company Logo">
             </div>
-            
+
             <form id="registrationForm">
                 <!-- Personal Information Section -->
                 <div class="form-section">
                     <div class="section-title">Personal Information</div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name <span class="required">*</span></label>
-                            <input type="text" id="firstName" name="firstName" required>
+                            <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" required>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Last Name <span class="required">*</span></label>
-                            <input type="text" id="lastName" name="lastName" required>
+                            <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="businessOrganization">Business/Organization</label>
-                        <input type="text" id="businessOrganization" name="businessOrganization">
+                        <label for="businessOrganization">Business/Organization <span class="required">*</span></label>
+                        <input type="text" id="businessOrganization" name="businessOrganization" placeholder="Enter your Business/Organization" required>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label for="mobileNumber">Mobile Number <span class="required">*</span></label>
-                            <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                            <div style="display: flex; gap: 10px;">
+                                <select id="countryCode" name="countryCode" style="flex: 0 0 120px;" required>
+                                    <option value="+93">🇦🇫 +93</option>
+                                    <option value="+355">🇦🇱 +355</option>
+                                    <option value="+213">🇩🇿 +213</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+376">🇦🇩 +376</option>
+                                    <option value="+244">🇦🇴 +244</option>
+                                    <option value="+54">🇦🇷 +54</option>
+                                    <option value="+374">🇦🇲 +374</option>
+                                    <option value="+61">🇦🇺 +61</option>
+                                    <option value="+43">🇦🇹 +43</option>
+                                    <option value="+994">🇦🇿 +994</option>
+                                    <option value="+973">🇧🇭 +973</option>
+                                    <option value="+880">🇧🇩 +880</option>
+                                    <option value="+32">🇧🇪 +32</option>
+                                    <option value="+55">🇧🇷 +55</option>
+                                    <option value="+359">🇧🇬 +359</option>
+                                    <option value="+855">🇰🇭 +855</option>
+                                    <option value="+1">🇨🇦 +1</option>
+                                    <option value="+86">🇨🇳 +86</option>
+                                    <option value="+45">🇩🇰 +45</option>
+                                    <option value="+20">🇪🇬 +20</option>
+                                    <option value="+33">🇫🇷 +33</option>
+                                    <option value="+49">🇩🇪 +49</option>
+                                    <option value="+30">🇬🇷 +30</option>
+                                    <option value="+852">🇭🇰 +852</option>
+                                    <option value="+36">🇭🇺 +36</option>
+                                    <option value="+91">🇮🇳 +91</option>
+                                    <option value="+62">🇮🇩 +62</option>
+                                    <option value="+98">🇮🇷 +98</option>
+                                    <option value="+964">🇮🇶 +964</option>
+                                    <option value="+353">🇮🇪 +353</option>
+                                    <option value="+972">🇮🇱 +972</option>
+                                    <option value="+39">🇮🇹 +39</option>
+                                    <option value="+81">🇯🇵 +81</option>
+                                    <option value="+962">🇯🇴 +962</option>
+                                    <option value="+7">🇰🇿 +7</option>
+                                    <option value="+254">🇰🇪 +254</option>
+                                    <option value="+82">🇰🇷 +82</option>
+                                    <option value="+965">🇰🇼 +965</option>
+                                    <option value="+856">🇱🇦 +856</option>
+                                    <option value="+60">🇲🇾 +60</option>
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+95">🇲🇲 +95</option>
+                                    <option value="+977">🇳🇵 +977</option>
+                                    <option value="+31">🇳🇱 +31</option>
+                                    <option value="+64">🇳🇿 +64</option>
+                                    <option value="+47">🇳🇴 +47</option>
+                                    <option value="+92">🇵🇰 +92</option>
+                                    <option value="+63">🇵🇭 +63</option>
+                                    <option value="+48">🇵🇱 +48</option>
+                                    <option value="+351">🇵🇹 +351</option>
+                                    <option value="+974">🇶🇦 +974</option>
+                                    <option value="+7">🇷🇺 +7</option>
+                                    <option value="+966">🇸🇦 +966</option>
+                                    <option value="+65">🇸🇬 +65</option>
+                                    <option value="+27">🇿🇦 +27</option>
+                                    <option value="+34">🇪🇸 +34</option>
+                                    <option value="+94">🇱🇰 +94</option>
+                                    <option value="+46">🇸🇪 +46</option>
+                                    <option value="+41">🇨🇭 +41</option>
+                                    <option value="+66" selected>🇹🇭 +66</option>
+                                    <option value="+90">🇹🇷 +90</option>
+                                    <option value="+971">🇦🇪 +971</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+84">🇻🇳 +84</option>
+                                </select>
+                                <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Mobile number"
+                                    style="flex: 1;" required>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="Enter Email" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label for="nationality">Nationality <span class="required">*</span></label>
-                            <input type="text" id="nationality" name="nationality" required>
+                            <input type="text" id="nationality" name="nationality" placeholder="Enter your Nationality" required>
                         </div>
                         <div class="form-group">
                             <label for="passport">Passport Number <span class="required">*</span></label>
-                            <input type="text" id="passport" name="passport" required>
+                            <input type="text" id="passport" name="passport" placeholder="Enter your Passport number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="male" name="gender" value="Male" required>
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="female" name="gender" value="Female" required>
+                                <label for="female">Female</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="others" name="gender" value="Others" required>
+                                <label for="others">Others</label>
+                            </div>
                         </div>
                     </div>
 
@@ -356,11 +445,16 @@
                 <!-- Travel Information Section -->
                 <div class="form-section">
                     <div class="section-title">Travel Information</div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="arrivalDateKolkata">Date of Arrival in Kolkata <span class="required">*</span></label>
+                            <label for="arrivalDateKolkata">Date of Arrival - Kolkata <span
+                                    class="required">*</span></label>
                             <input type="date" id="arrivalDateKolkata" name="arrivalDateKolkata" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eta">ETA</label>
+                            <input type="time" id="eta" name="eta">
                         </div>
                         <div class="form-group">
                             <label for="arrivalFlightNumber">Arrival Flight Number</label>
@@ -370,8 +464,13 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="departureDateDelhi">Date of Departure from Delhi <span class="required">*</span></label>
+                            <label for="departureDateDelhi">Date of Departure - Delhi <span
+                                    class="required">*</span></label>
                             <input type="date" id="departureDateDelhi" name="departureDateDelhi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="etd">ETD</label>
+                            <input type="time" id="etd" name="etd">
                         </div>
                         <div class="form-group">
                             <label for="departureFlightNumber">Departure Flight Number</label>
@@ -383,88 +482,126 @@
                 <!-- Accommodation Section -->
                 <div class="form-section">
                     <div class="section-title">Accommodation Information</div>
-                    
-                    <div class="form-group">
-                        <label for="accommodationRequired">Accommodation Required <span class="required">*</span></label>
-                        <select id="accommodationRequired" name="accommodationRequired" required>
-                            <option value="">Select...</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
 
                     <div class="form-group">
-                        <label for="earlyCheckinBreakfast">Early Checkin with Breakfast</label>
-                        <select id="earlyCheckinBreakfast" name="earlyCheckinBreakfast">
-                            <option value="">Select...</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="price">Price</label>
-                        <input type="text" id="price" name="price" placeholder="Enter amount">
-                    </div>
-                </div>
-
-                <!-- Hotel Check-in Details Section -->
-                <div class="form-section">
-                    <div class="section-title">Hotel Check-in Details</div>
-                    
-                    <!-- Kolkata -->
-                    <h4 style="color: #333; margin-bottom: 15px;">Kolkata</h4>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="checkinDateKolkata">Check-in Date</label>
-                            <input type="date" id="checkinDateKolkata" name="checkinDateKolkata">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkinTimeKolkata">Check-in Time</label>
-                            <input type="time" id="checkinTimeKolkata" name="checkinTimeKolkata">
+                        <label>Select Cities <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cityKolkata" name="selectedCities" value="Kolkata"
+                                    onchange="toggleCityFields('kolkata')">
+                                <label for="cityKolkata">Kolkata</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cityAmritsar" name="selectedCities" value="Amritsar"
+                                    onchange="toggleCityFields('amritsar')">
+                                <label for="cityAmritsar">Amritsar</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cityLudhiana" name="selectedCities" value="Ludhiana"
+                                    onchange="toggleCityFields('ludhiana')">
+                                <label for="cityLudhiana">Ludhiana</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cityDelhi" name="selectedCities" value="Delhi"
+                                    onchange="toggleCityFields('delhi')">
+                                <label for="cityDelhi">Delhi</label>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Amritsar -->
-                    <h4 style="color: #333; margin: 20px 0 15px 0;">Amritsar</h4>
-                    <div class="form-row">
+                    <!-- Kolkata Fields -->
+                    <div id="kolkataFields" class="city-fields" style="display: none;">
+                        <h4 style="color: #007bff; margin: 20px 0 15px 0;">Kolkata Accommodation - The LaLiT Great Eastern Kolkata</h4>
+
                         <div class="form-group">
-                            <label for="checkinDateAmritsar">Check-in Date</label>
-                            <input type="date" id="checkinDateAmritsar" name="checkinDateAmritsar">
+                            <label>Early Checkin with Breakfast <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="kolkataEarlyCheckinYes" name="kolkataEarlyCheckin" value="Yes" onchange="updateKolkataPrice()" required>
+                                    <label for="kolkataEarlyCheckinYes">Yes</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="kolkataEarlyCheckinNo" name="kolkataEarlyCheckin" value="No" onchange="updateKolkataPrice()" required>
+                                    <label for="kolkataEarlyCheckinNo">No</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="checkinTimeAmritsar">Check-in Time</label>
-                            <input type="time" id="checkinTimeAmritsar" name="checkinTimeAmritsar">
+
+                        <div class="form-group" id="kolkataPriceGroup" style="display: none;">
+                            <label for="kolkataPrice">Price</label>
+                            <input type="text" id="kolkataPrice" name="kolkataPrice" value="2000 THB" readonly
+                                style="background-color: #f8f9fa; color: #6c757d;">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="kolkataCheckinDate">Check-in Date</label>
+                                <input type="date" id="kolkataCheckinDate" name="kolkataCheckinDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="kolkataCheckinTime">Check-in Time</label>
+                                <input type="time" id="kolkataCheckinTime" name="kolkataCheckinTime">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Ludhiana -->
-                    <h4 style="color: #333; margin: 20px 0 15px 0;">Ludhiana</h4>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="checkinDateLudhiana">Check-in Date</label>
-                            <input type="date" id="checkinDateLudhiana" name="checkinDateLudhiana">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkinTimeLudhiana">Check-in Time</label>
-                            <input type="time" id="checkinTimeLudhiana" name="checkinTimeLudhiana">
+                    <!-- Amritsar Fields -->
+                    <div id="amritsarFields" class="city-fields" style="display: none;">
+                        <h4 style="color: #007bff; margin: 20px 0 15px 0;">Amritsar Accommodation - Ramada by Wyndham</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="amritsarCheckinDate">Check-in Date</label>
+                                <input type="date" id="amritsarCheckinDate" name="amritsarCheckinDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="amritsarCheckinTime">Check-in Time</label>
+                                <input type="time" id="amritsarCheckinTime" name="amritsarCheckinTime">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Delhi -->
-                    <h4 style="color: #333; margin: 20px 0 15px 0;">Delhi</h4>
-                    <div class="form-group">
-                        <label for="delhiHotel">Delhi Hotel</label>
-                        <input type="text" id="delhiHotel" name="delhiHotel" placeholder="Hotel name">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="checkinDateDelhi">Check-in Date</label>
-                            <input type="date" id="checkinDateDelhi" name="checkinDateDelhi">
+                    <!-- Ludhiana Fields -->
+                    <div id="ludhianaFields" class="city-fields" style="display: none;">
+                        <h4 style="color: #007bff; margin: 20px 0 15px 0;">Ludhiana Accommodation - Radisson Blu Hotel, Ludhiana</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ludhianaCheckinDate">Check-in Date</label>
+                                <input type="date" id="ludhianaCheckinDate" name="ludhianaCheckinDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="ludhianaCheckinTime">Check-in Time</label>
+                                <input type="time" id="ludhianaCheckinTime" name="ludhianaCheckinTime">
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- Delhi Fields -->
+                    <div id="delhiFields" class="city-fields" style="display: none;">
+                        <h4 style="color: #007bff; margin: 20px 0 15px 0;">Delhi Accommodation</h4>
+                        
                         <div class="form-group">
-                            <label for="checkinTimeDelhi">Check-in Time</label>
-                            <input type="time" id="checkinTimeDelhi" name="checkinTimeDelhi">
+                            <label>Delhi Hotel <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="delhiHotelRoyal" name="delhiHotel" value="Hotel The Royal Plaza" required>
+                                    <label for="delhiHotelRoyal">Hotel The Royal Plaza</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="delhiHotelShangri" name="delhiHotel" value="Shangri-La Eros" required>
+                                    <label for="delhiHotelShangri">Shangri-La Eros</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="delhiCheckinDate">Check-in Date</label>
+                                <input type="date" id="delhiCheckinDate" name="delhiCheckinDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="delhiCheckinTime">Check-in Time</label>
+                                <input type="time" id="delhiCheckinTime" name="delhiCheckinTime">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -474,8 +611,17 @@
                     <div class="section-title">Reference Information</div>
                     
                     <div class="form-group">
-                        <label for="referenceBy">Reference By</label>
-                        <input type="text" id="referenceBy" name="referenceBy" placeholder="Who referred you?">
+                        <label>Reference By</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="referenceJyoti" name="referenceBy" value="Khun Jyoti">
+                                <label for="referenceJyoti">Khun Jyoti</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="referenceBenj" name="referenceBy" value="Khun Benj">
+                                <label for="referenceBenj">Khun Benj</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -497,9 +643,50 @@
     <script>
         // Store form data globally
         let formData = {};
-        
+
         // *** REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL ***
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRNSaE1IrJFaJ-GGUZLJCVUR0x6JQSj51q9vHVmtvsm1z75yzv81ixuoFae5xJo9c/exec';
+        // const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRNSaE1IrJFaJ-GGUZLJCVUR0x6JQSj51q9vHVmtvsm1z75yzv81ixuoFae5xJo9c/exec';
+           const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRNSaE1IrJFaJ-GGUZLJCVUR0x6JQSj51q9vHVmtvsm1z75yzv81ixuoFae5xJo9c/exec';
+
+        // Function to toggle city-specific accommodation fields
+        function toggleCityFields(city) {
+            const checkbox = document.getElementById(`city${city.charAt(0).toUpperCase() + city.slice(1)}`);
+            const fieldsDiv = document.getElementById(`${city}Fields`);
+
+            if (checkbox.checked) {
+                fieldsDiv.style.display = 'block';
+            } else {
+                fieldsDiv.style.display = 'none';
+                // Clear the fields when unchecked
+                const inputs = fieldsDiv.querySelectorAll('input, select');
+                inputs.forEach(input => {
+                    if (input.id === 'kolkataPrice') {
+                        input.value = '2000 THB'; // Reset to default
+                    } else {
+                        input.value = '';
+                        if (input.type === 'radio' || input.type === 'checkbox') {
+                            input.checked = false;
+                        }
+                    }
+                });
+                // Hide price group when Kolkata is unchecked
+                if (city === 'kolkata') {
+                    document.getElementById('kolkataPriceGroup').style.display = 'none';
+                }
+            }
+        }
+
+        // Function to update Kolkata price based on early checkin selection
+        function updateKolkataPrice() {
+            const earlyCheckinYes = document.getElementById('kolkataEarlyCheckinYes');
+            const priceGroup = document.getElementById('kolkataPriceGroup');
+            
+            if (earlyCheckinYes && earlyCheckinYes.checked) {
+                priceGroup.style.display = 'block';
+            } else {
+                priceGroup.style.display = 'none';
+            }
+        }
 
         // Function to navigate between pages
         function goToPage(pageNumber) {
@@ -507,7 +694,7 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            
+
             // Show selected page
             document.getElementById(`page${pageNumber}`).classList.add('active');
         }
@@ -516,14 +703,14 @@
         async function sendToGoogleSheets(data) {
             try {
                 console.log('Sending data to Google Sheets:', data);
-                
+
                 // Create a form to submit data (this bypasses CORS issues)
                 const form = document.createElement('form');
                 form.method = 'POST';
                 form.action = GOOGLE_SCRIPT_URL;
                 form.target = 'hidden_iframe';
                 form.style.display = 'none';
-                
+
                 // Add all form data as hidden inputs
                 for (const [key, value] of Object.entries(data)) {
                     const input = document.createElement('input');
@@ -532,7 +719,7 @@
                     input.value = value || '';
                     form.appendChild(input);
                 }
-                
+
                 // Create hidden iframe to capture response
                 let iframe = document.getElementById('hidden_iframe');
                 if (!iframe) {
@@ -542,15 +729,15 @@
                     iframe.style.display = 'none';
                     document.body.appendChild(iframe);
                 }
-                
+
                 // Submit form
                 document.body.appendChild(form);
                 form.submit();
                 document.body.removeChild(form);
-                
+
                 console.log('Data sent successfully via form submission');
                 return { status: 'success' };
-                
+
             } catch (error) {
                 console.error('Error sending to Google Sheets:', error);
                 return { status: 'error', message: error.message };
@@ -558,14 +745,48 @@
         }
 
         // Handle form submission
-        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+        document.getElementById('registrationForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
+            // Validate gender selection
+            const gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                alert('Please select your gender.');
+                return;
+            }
+
             // Validate meal preference
             const mealPreference = document.querySelector('input[name="mealPreference"]:checked');
             if (!mealPreference) {
                 alert('Please select a meal preference.');
                 return;
+            }
+
+            // Validate city selection
+            const selectedCities = document.querySelectorAll('input[name="selectedCities"]:checked');
+            if (selectedCities.length === 0) {
+                alert('Please select at least one city for accommodation.');
+                return;
+            }
+
+            // Validate Kolkata early checkin (only if Kolkata is selected)
+            const kolkataSelected = document.getElementById('cityKolkata').checked;
+            if (kolkataSelected) {
+                const kolkataEarlyCheckin = document.querySelector('input[name="kolkataEarlyCheckin"]:checked');
+                if (!kolkataEarlyCheckin) {
+                    alert('Please select early checkin option for Kolkata.');
+                    return;
+                }
+            }
+
+            // Validate Delhi hotel selection (only if Delhi is selected)
+            const delhiSelected = document.getElementById('cityDelhi').checked;
+            if (delhiSelected) {
+                const delhiHotel = document.querySelector('input[name="delhiHotel"]:checked');
+                if (!delhiHotel) {
+                    alert('Please select a Delhi hotel.');
+                    return;
+                }
             }
 
             // Show loading state
@@ -577,10 +798,20 @@
             // Collect form data
             const formDataObj = new FormData(this);
             formData = {};
-            
+
             // Get all form fields
             for (let [key, value] of formDataObj.entries()) {
-                formData[key] = value;
+                if (key === 'selectedCities') {
+                    if (!formData[key]) formData[key] = [];
+                    formData[key].push(value);
+                } else {
+                    formData[key] = value;
+                }
+            }
+
+            // Convert selected cities array to string
+            if (formData.selectedCities) {
+                formData.selectedCities = formData.selectedCities.join(', ');
             }
 
             // Add submission timestamp
@@ -594,7 +825,7 @@
             if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
                 try {
                     const result = await sendToGoogleSheets(formData);
-                    
+
                     if (result.status === 'success') {
                         console.log('Data successfully sent to Google Sheets!');
                         goToPage(3);
@@ -627,27 +858,31 @@
             console.log('First Name:', formData.firstName);
             console.log('Last Name:', formData.lastName);
             console.log('Business/Organization:', formData.businessOrganization || 'Not provided');
+            console.log('Country Code:', formData.countryCode);
             console.log('Mobile Number:', formData.mobileNumber);
             console.log('Email:', formData.email);
             console.log('Nationality:', formData.nationality);
             console.log('Passport:', formData.passport);
+            console.log('Gender:', formData.gender);
             console.log('Meal Preference:', formData.mealPreference);
             console.log('Arrival Date Kolkata:', formData.arrivalDateKolkata);
+            console.log('ETA:', formData.eta || 'Not provided');
             console.log('Arrival Flight Number:', formData.arrivalFlightNumber || 'Not provided');
-            console.log('Accommodation Required:', formData.accommodationRequired);
-            console.log('Early Checkin with Breakfast:', formData.earlyCheckinBreakfast || 'Not selected');
-            console.log('Price:', formData.price || 'Not provided');
-            console.log('Checkin Date Kolkata:', formData.checkinDateKolkata || 'Not provided');
-            console.log('Checkin Time Kolkata:', formData.checkinTimeKolkata || 'Not provided');
-            console.log('Checkin Date Amritsar:', formData.checkinDateAmritsar || 'Not provided');
-            console.log('Checkin Time Amritsar:', formData.checkinTimeAmritsar || 'Not provided');
-            console.log('Checkin Date Ludhiana:', formData.checkinDateLudhiana || 'Not provided');
-            console.log('Checkin Time Ludhiana:', formData.checkinTimeLudhiana || 'Not provided');
-            console.log('Delhi Hotel:', formData.delhiHotel || 'Not provided');
-            console.log('Checkin Date Delhi:', formData.checkinDateDelhi || 'Not provided');
-            console.log('Checkin Time Delhi:', formData.checkinTimeDelhi || 'Not provided');
             console.log('Departure Date Delhi:', formData.departureDateDelhi);
+            console.log('ETD:', formData.etd || 'Not provided');
             console.log('Departure Flight Number:', formData.departureFlightNumber || 'Not provided');
+            console.log('Selected Cities:', formData.selectedCities);
+            console.log('Kolkata Early Checkin:', formData.kolkataEarlyCheckin || 'Not applicable');
+            console.log('Kolkata Price:', formData.kolkataPrice || 'Not applicable');
+            console.log('Kolkata Checkin Date:', formData.kolkataCheckinDate || 'Not provided');
+            console.log('Kolkata Checkin Time:', formData.kolkataCheckinTime || 'Not provided');
+            console.log('Amritsar Checkin Date:', formData.amritsarCheckinDate || 'Not provided');
+            console.log('Amritsar Checkin Time:', formData.amritsarCheckinTime || 'Not provided');
+            console.log('Ludhiana Checkin Date:', formData.ludhianaCheckinDate || 'Not provided');
+            console.log('Ludhiana Checkin Time:', formData.ludhianaCheckinTime || 'Not provided');
+            console.log('Delhi Hotel:', formData.delhiHotel || 'Not provided');
+            console.log('Delhi Checkin Date:', formData.delhiCheckinDate || 'Not provided');
+            console.log('Delhi Checkin Time:', formData.delhiCheckinTime || 'Not provided');
             console.log('Reference By:', formData.referenceBy || 'Not provided');
             console.log('Submission Time:', formData.submissionTime);
             console.log('========================');
@@ -656,10 +891,10 @@
         // Set minimum date to today for all date fields
         const today = new Date().toISOString().split('T')[0];
         const dateFields = [
-            'arrivalDateKolkata', 'departureDateDelhi', 'checkinDateKolkata',
-            'checkinDateAmritsar', 'checkinDateLudhiana', 'checkinDateDelhi'
+            'arrivalDateKolkata', 'departureDateDelhi',
+            'kolkataCheckinDate', 'amritsarCheckinDate', 'ludhianaCheckinDate', 'delhiCheckinDate'
         ];
-        
+
         dateFields.forEach(fieldId => {
             const field = document.getElementById(fieldId);
             if (field) {
@@ -668,7 +903,7 @@
         });
 
         // Update departure date minimum when arrival date changes
-        document.getElementById('arrivalDateKolkata').addEventListener('change', function() {
+        document.getElementById('arrivalDateKolkata').addEventListener('change', function () {
             document.getElementById('departureDateDelhi').setAttribute('min', this.value);
         });
     </script>
