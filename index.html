@@ -53,16 +53,15 @@
         .register-btn {
             background: linear-gradient(45deg, #007bff, #0056b3);
             color: white;
-            margin-top: 10rem;
             border: none;
             padding: 15px 40px;
             font-size: 1.2rem;
-            position: relative;
-            bottom: -300px;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+            position: relative;
+            bottom: -22rem;
         }
 
         .register-btn:hover {
@@ -72,7 +71,7 @@
 
         /* Page 2 Styles */
         .page2 {
-            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
                 url('./images/bg.jpg');
             background-size: cover;
             background-position: center;
@@ -155,7 +154,7 @@
         .form-section {
             margin-bottom: 30px;
             padding: 20px;
-            background: rgba(248, 249, 250, 0.8);
+            background: rgba(249, 248, 250, 0.8);
             border-radius: 10px;
             border-left: 4px solid #007bff;
         }
@@ -214,8 +213,8 @@
 
         /* Page 3 Styles */
         .page3 {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                url('./images/background.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+                url('./images/bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -266,6 +265,47 @@
             color: red;
         }
 
+        .price-field-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .price-field-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .price-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            background-color: #fff3cd;
+            color: #856404;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .package-calculator {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .conditional-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            border-left: 3px solid #2196f3;
+        }
+
         @media (max-width: 768px) {
             .form-row {
                 flex-direction: column;
@@ -279,6 +319,21 @@
                 padding: 20px;
                 margin: 10px;
             }
+
+            .price-field-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .price-field-group {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            .price-field {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -287,7 +342,9 @@
     <!-- Page 1: Welcome Page -->
     <div class="page page1 active" id="page1">
         <div class="welcome-content">
-            <button class="register-btn" onclick="goToPage(2)">Click To Fill The Form</button>
+            <!-- <h1>Welcome to</h1> -->
+            <!-- <h1>The Great Indian RoadShow 2.0</h1> -->
+            <button class="register-btn" onclick="goToPage(2)">Click to fill the form</button>
         </div>
     </div>
 
@@ -295,7 +352,9 @@
     <div class="page page2" id="page2">
         <div class="form-container">
             <div class="logo">
-                <img src="./images/background.jpg" alt="Company Logo2">
+                <!-- Your company logo -->
+                <!-- <h2>Great Indian RoadShow 2.0</h2> -->
+                <img src="./images/background.jpg" alt="Company Logo">
                 <img src="./images/logo.jpg" alt="Company Logo">
             </div>
 
@@ -459,12 +518,11 @@
                             <input type="date" id="arrivalDateKolkata" name="arrivalDateKolkata" required>
                         </div>
                         <div class="form-group">
-                            <label for="eta">ETA<span class="required">*</span></label>
+                            <label for="eta">ETA</label>
                             <input type="time" id="eta" name="eta">
                         </div>
                         <div class="form-group">
-                            <label for="arrivalFlightNumber">Arrival Flight Number<span
-                                    class="required">*</span></label>
+                            <label for="arrivalFlightNumber">Arrival Flight Number</label>
                             <input type="text" id="arrivalFlightNumber" name="arrivalFlightNumber">
                         </div>
                     </div>
@@ -476,13 +534,11 @@
                             <input type="date" id="departureDateDelhi" name="departureDateDelhi" required>
                         </div>
                         <div class="form-group">
-                            <label for="etd">ETD<span
-                                    class="required">*</span></label>
+                            <label for="etd">ETD</label>
                             <input type="time" id="etd" name="etd">
                         </div>
                         <div class="form-group">
-                            <label for="departureFlightNumber">Departure Flight Number<span
-                                    class="required">*</span></label>
+                            <label for="departureFlightNumber">Departure Flight Number</label>
                             <input type="text" id="departureFlightNumber" name="departureFlightNumber">
                         </div>
                     </div>
@@ -492,48 +548,178 @@
                 <div class="form-section">
                     <div class="section-title">Accommodation Information</div>
 
+                    <!-- <div class="form-group">
+                        <div class="price-field-container">
+                            <div>
+                                <label>Early Checkin with Breakfast <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="earlyCheckinYes" name="earlyCheckin" value="Yes"
+                                            onchange="updateEarlyCheckinPrice()" required>
+                                        <label for="earlyCheckinYes">Yes</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="earlyCheckinNo" name="earlyCheckin" value="No"
+                                            onchange="updateEarlyCheckinPrice()" required>
+                                        <label for="earlyCheckinNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-field-group" id="earlyCheckinPriceGroup" style="display: none;">
+                                <label for="earlyCheckinPriceField">Price per person (in THB):</label>
+                                <input type="text" id="earlyCheckinPriceField" name="earlyCheckinPrice"
+                                    class="price-field" value="2000" readonly style="width: 100px;">
+                            </div>
+                        </div>
+                    </div> -->
+
                     <div class="form-group">
-                        <label>Kolkata - The Lalit Great Eastern</label>
-                        <div> </div>
-                        <label>Early Checkin with Breakfast <span class="required">*</span></label>
+                        <div class="price-field-container">
+                            <div>
+                                <label >Kolkata Hotel - The Lalit Great Eastern </label>
+                                <label>Check-in Date <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="checkinDate17" name="checkinDate" value="17 August"
+                                            onchange="updateCheckinDateOptions()" required>
+                                        <label for="checkinDate17">17 August</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="checkinDate18" name="checkinDate" value="18 August"
+                                            onchange="updateCheckinDateOptions()" required>
+                                        <label for="checkinDate18">18 August</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conditional-section" id="checkinDateOccupancy" style="display: none;">
+                        <div class="form-group">
+                            <div class="price-field-container">
+                                <div>
+                                    <label>Occupancy <span class="required">*</span></label>
+                                    <div class="radio-group">
+                                        <div class="radio-item">
+                                            <input type="radio" id="checkinSingle" name="checkinOccupancy"
+                                                value="Single" onchange="updateCheckinOccupancyPrice()">
+                                            <label for="checkinSingle">Single</label>
+                                        </div>
+                                        <div class="radio-item">
+                                            <input type="radio" id="checkinDouble" name="checkinOccupancy"
+                                                value="Double" onchange="updateCheckinOccupancyPrice()">
+                                            <label for="checkinDouble">Double</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-field-group" id="checkinOccupancyPriceGroup" style="display: none;">
+                                    <label for="checkinOccupancyPriceField">Price (in THB):</label>
+                                    <input type="text" id="checkinOccupancyPriceField" name="checkinOccupancyPrice"
+                                        class="price-field" readonly style="width: 100px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="price-field-container">
+                            <div>
+                                <label>Early Checkin with Breakfast <span class="required">*</span></label>
+                                <label>(On or After 8 A.M.)</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="earlyCheckinYes" name="earlyCheckin" value="Yes"
+                                            onchange="updateEarlyCheckinPrice()" required>
+                                        <label for="earlyCheckinYes">Yes</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="earlyCheckinNo" name="earlyCheckin" value="No"
+                                            onchange="updateEarlyCheckinPrice()" required>
+                                        <label for="earlyCheckinNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-field-group" id="earlyCheckinPriceGroup" style="display: none;">
+                                <label for="earlyCheckinPriceField">Price per person (in THB):</label>
+                                <input type="text" id="earlyCheckinPriceField" name="earlyCheckinPrice"
+                                    class="price-field" value="2000" readonly style="width: 100px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conditional section for 17 August check-in -->
+
+                </div>
+
+                <!-- Package Calculator Section -->
+                <div class="form-section package-calculator">
+                    <div class="section-title">Package Selection</div>
+
+                    <div class="form-group">
+                        <label>Package Type (Breakfast incl.) <span class="required">*</span></label>
                         <div class="radio-group">
                             <div class="radio-item">
-                                <input type="radio" id="earlyCheckinYes" name="earlyCheckin" value="Yes"
-                                    onchange="updatePriceVisibility()" required>
-                                <label for="earlyCheckinYes">Yes</label>
+                                <input type="radio" id="package4nights" name="packageType" value="4 Nights / 5 Days"
+                                    required onchange="calculatePackagePrice()">
+                                <label for="package4nights">4 Nights / 5 Days</label>
                             </div>
                             <div class="radio-item">
-                                <input type="radio" id="earlyCheckinNo" name="earlyCheckin" value="No"
-                                    onchange="updatePriceVisibility()" required>
-                                <label for="earlyCheckinNo">No</label>
+                                <input type="radio" id="package5nights" name="packageType"
+                                    value="5 Nights / 6 Days (extra day in Delhi)" required
+                                    onchange="calculatePackagePrice()">
+                                <label for="package5nights">5 Nights / 6 Days (extra day in Delhi)</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group" id="priceGroup" style="display: none;">
-                        <label for="price">Price</label>
-                        <input type="text" id="price" name="price" value="2000 THB" readonly
-                            style="background-color: #f8f9fa; color: #6c757d;">
+                    <div class="form-group">
+                        <label>Hotel Star Category <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="star4" name="hotelCategory" value="4-star" required
+                                    onchange="calculatePackagePrice()">
+                                <label for="star4">4-star</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="star5" name="hotelCategory" value="5-star" required
+                                    onchange="calculatePackagePrice()">
+                                <label for="star5">5-star</label>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="checkinDate">Check-in Date<span
-                                    class="required">*</span></label>
-                            <input type="date" id="checkinDate" name="checkinDate">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkinTime">Check-in Time<span
-                                    class="required">*</span></label>
-                            <input type="time" id="checkinTime" name="checkinTime">
+                    <div class="form-group">
+                        <div class="price-field-container">
+                            <div>
+                                <label>Occupancy <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="single" name="occupancy" value="Single" required
+                                            onchange="calculatePackagePrice()">
+                                        <label for="single">Single</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="double" name="occupancy" value="Double" required
+                                            onchange="calculatePackagePrice()">
+                                        <label for="double">Double</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-field-group" id="packagePriceGroup" style="display: none;">
+                                <label for="packagePriceField">Price per person (in THB):</label>
+                                <input type="text" id="packagePriceField" name="packagePrice" class="price-field"
+                                    readonly style="width: 100px;">
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Reference Section -->
-                <div class="form-section">
+                <!-- <div class="form-section">
                     <div class="section-title">Reference Information</div>
-
+                    
                     <div class="form-group">
                         <label>Reference By</label>
                         <div class="radio-group">
@@ -547,7 +733,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <button type="submit" class="submit-btn">Submit Registration</button>
             </form>
@@ -568,18 +754,111 @@
         // Store form data globally
         let formData = {};
 
-        // Google Apps Script URL
+        // *** REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL ***
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRNSaE1IrJFaJ-GGUZLJCVUR0x6JQSj51q9vHVmtvsm1z75yzv81ixuoFae5xJo9c/exec';
 
-        // Function to update price visibility based on early checkin selection
-        function updatePriceVisibility() {
+        // Package pricing data
+        const packagePrices = {
+            '4 Nights / 5 Days': {
+                '4-star': {
+                    'Single': 13900,
+                    'Double': 7950
+                },
+                '5-star': {
+                    'Single': 16469,
+                    'Double': 9234
+                }
+            },
+            '5 Nights / 6 Days (extra day in Delhi)': {
+                '4-star': {
+                    'Single': 16850,
+                    'Double': 9425
+                },
+                '5-star': {
+                    'Single': 21970,
+                    'Double': 11985
+                }
+            }
+        };
+
+        // Function to calculate package price
+        function calculatePackagePrice() {
+            const packageType = document.querySelector('input[name="packageType"]:checked');
+            const hotelCategory = document.querySelector('input[name="hotelCategory"]:checked');
+            const occupancy = document.querySelector('input[name="occupancy"]:checked');
+
+            if (packageType && hotelCategory && occupancy) {
+                const price = packagePrices[packageType.value][hotelCategory.value][occupancy.value];
+                document.getElementById('packagePriceGroup').style.display = 'flex';
+                document.getElementById('packagePriceField').value = `${price.toLocaleString()}`;
+            } else {
+                document.getElementById('packagePriceGroup').style.display = 'none';
+            }
+        }
+
+        // Function to update early checkin price display
+        function updateEarlyCheckinPrice() {
             const earlyCheckinYes = document.getElementById('earlyCheckinYes');
-            const priceGroup = document.getElementById('priceGroup');
+            const priceGroup = document.getElementById('earlyCheckinPriceGroup');
 
             if (earlyCheckinYes && earlyCheckinYes.checked) {
-                priceGroup.style.display = 'block';
+                priceGroup.style.display = 'flex';
             } else {
                 priceGroup.style.display = 'none';
+            }
+        }
+
+        // Function to update checkin date options and show/hide occupancy section
+        function updateCheckinDateOptions() {
+            const checkinDate17 = document.getElementById('checkinDate17');
+            const checkinDate18 = document.getElementById('checkinDate18');
+            const occupancySection = document.getElementById('checkinDateOccupancy');
+            const checkinSingle = document.getElementById('checkinSingle');
+            const checkinDouble = document.getElementById('checkinDouble');
+            const priceGroup = document.getElementById('checkinOccupancyPriceGroup');
+
+            if (checkinDate17 && checkinDate17.checked) {
+                // Show occupancy section for 17 August
+                occupancySection.style.display = 'block';
+                // Make occupancy required for 17 August
+                checkinSingle.required = true;
+                checkinDouble.required = true;
+            } else if (checkinDate18 && checkinDate18.checked) {
+                // Hide occupancy section for 18 August
+                occupancySection.style.display = 'none';
+                priceGroup.style.display = 'none';
+                // Clear occupancy selection and remove required
+                checkinSingle.checked = false;
+                checkinDouble.checked = false;
+                checkinSingle.required = false;
+                checkinDouble.required = false;
+                // Clear price field
+                document.getElementById('checkinOccupancyPriceField').value = '';
+            } else {
+                // Hide everything if no date is selected
+                occupancySection.style.display = 'none';
+                priceGroup.style.display = 'none';
+                checkinSingle.required = false;
+                checkinDouble.required = false;
+            }
+        }
+
+        // Function to update check-in occupancy price
+        function updateCheckinOccupancyPrice() {
+            const checkinSingle = document.getElementById('checkinSingle');
+            const checkinDouble = document.getElementById('checkinDouble');
+            const priceGroup = document.getElementById('checkinOccupancyPriceGroup');
+            const priceField = document.getElementById('checkinOccupancyPriceField');
+
+            if (checkinSingle && checkinSingle.checked) {
+                priceGroup.style.display = 'flex';
+                priceField.value = '2929';
+            } else if (checkinDouble && checkinDouble.checked) {
+                priceGroup.style.display = 'flex';
+                priceField.value = '3319';
+            } else {
+                priceGroup.style.display = 'none';
+                priceField.value = '';
             }
         }
 
@@ -664,6 +943,32 @@
                 return;
             }
 
+            // Validate checkin date
+            const checkinDate = document.querySelector('input[name="checkinDate"]:checked');
+            if (!checkinDate) {
+                alert('Please select check-in date.');
+                return;
+            }
+
+            // Validate occupancy for 17 August
+            if (checkinDate && checkinDate.value === '17 August') {
+                const checkinOccupancy = document.querySelector('input[name="checkinOccupancy"]:checked');
+                if (!checkinOccupancy) {
+                    alert('Please select occupancy for check-in date 17 August.');
+                    return;
+                }
+            }
+
+            // Validate package selection
+            const packageType = document.querySelector('input[name="packageType"]:checked');
+            const hotelCategory = document.querySelector('input[name="hotelCategory"]:checked');
+            const occupancy = document.querySelector('input[name="occupancy"]:checked');
+
+            if (!packageType || !hotelCategory || !occupancy) {
+                alert('Please complete all package selection fields.');
+                return;
+            }
+
             // Show loading state
             const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
@@ -679,6 +984,21 @@
                 formData[key] = value;
             }
 
+            // Ensure prices are captured correctly
+            if (document.getElementById('earlyCheckinYes').checked) {
+                formData.earlyCheckinPrice = '2000';
+            }
+
+            // Handle check-in occupancy price based on selection
+            const checkinOccupancySelection = document.querySelector('input[name="checkinOccupancy"]:checked');
+            if (checkinOccupancySelection) {
+                if (checkinOccupancySelection.value === 'Single') {
+                    formData.checkinOccupancyPrice = '2929';
+                } else if (checkinOccupancySelection.value === 'Double') {
+                    formData.checkinOccupancyPrice = '3319';
+                }
+            }
+
             // Add submission timestamp
             formData.submissionTime = new Date().toLocaleString();
 
@@ -687,20 +1007,28 @@
             displayFormData();
 
             // Send to Google Sheets
-            try {
-                const result = await sendToGoogleSheets(formData);
+            if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                try {
+                    const result = await sendToGoogleSheets(formData);
 
-                if (result.status === 'success') {
-                    console.log('Data successfully sent to Google Sheets!');
-                    goToPage(3);
-                } else {
-                    console.error('Error sending to Google Sheets:', result.message);
+                    if (result.status === 'success') {
+                        console.log('Data successfully sent to Google Sheets!');
+                        goToPage(3);
+                    } else {
+                        console.error('Error sending to Google Sheets:', result.message);
+                        // Still go to thank you page since data was logged
+                        alert('Registration submitted! Data has been logged locally.');
+                        goToPage(3);
+                    }
+                } catch (error) {
+                    console.error('Network error:', error);
                     alert('Registration submitted! Data has been logged locally.');
                     goToPage(3);
                 }
-            } catch (error) {
-                console.error('Network error:', error);
-                alert('Registration submitted! Data has been logged locally.');
+            } else {
+                // If Google Script URL not set, just go to thank you page
+                console.log('Google Apps Script URL not set - form data logged to console');
+                alert('Form submitted! (Google Sheets integration not yet configured)');
                 goToPage(3);
             }
 
@@ -729,9 +1057,14 @@
             console.log('ETD:', formData.etd || 'Not provided');
             console.log('Departure Flight Number:', formData.departureFlightNumber || 'Not provided');
             console.log('Early Checkin:', formData.earlyCheckin);
-            console.log('Price:', formData.price || 'Not applicable');
-            console.log('Checkin Date:', formData.checkinDate || 'Not provided');
-            console.log('Checkin Time:', formData.checkinTime || 'Not provided');
+            console.log('Early Checkin Price:', formData.earlyCheckinPrice || 'Not applicable');
+            console.log('Checkin Date:', formData.checkinDate);
+            console.log('Checkin Occupancy:', formData.checkinOccupancy || 'Not applicable');
+            console.log('Checkin Occupancy Price:', formData.checkinOccupancyPrice || 'Not applicable');
+            console.log('Package Type:', formData.packageType);
+            console.log('Hotel Category:', formData.hotelCategory);
+            console.log('Occupancy:', formData.occupancy);
+            console.log('Package Price:', formData.packagePrice);
             console.log('Reference By:', formData.referenceBy || 'Not provided');
             console.log('Submission Time:', formData.submissionTime);
             console.log('========================');
@@ -740,7 +1073,7 @@
         // Set minimum date to today for all date fields
         const today = new Date().toISOString().split('T')[0];
         const dateFields = [
-            'arrivalDateKolkata', 'departureDateDelhi', 'checkinDate'
+            'arrivalDateKolkata', 'departureDateDelhi'
         ];
 
         dateFields.forEach(fieldId => {
