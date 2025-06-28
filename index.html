@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Website</title>
+    <title>The Great Indian RoadShow 2025 - Registration</title>
     <style>
         * {
             margin: 0;
@@ -29,6 +29,7 @@
 
         /* Page 1 Styles */
         .page1 {
+            /* Update with your actual background image URL */
             background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
                 url('./images/background.jpg');
             background-size: cover;
@@ -71,7 +72,8 @@
 
         /* Page 2 Styles */
         .page2 {
-            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+            /* Update with your actual background image URL */
+            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
                 url('./images/bg.jpg');
             background-size: cover;
             background-position: center;
@@ -99,6 +101,7 @@
         .logo img {
             max-width: 400px;
             height: auto;
+            margin: 10px;
         }
 
         .logo h2 {
@@ -109,6 +112,12 @@
 
         .form-group {
             margin-bottom: 20px;
+        }
+
+        .form-italic {
+            text-decoration: wavy;
+            font-weight: lighter;
+            font-size: smaller;
         }
 
         .form-row {
@@ -132,6 +141,7 @@
         input[type="date"],
         input[type="time"],
         input[type="tel"],
+        input[type="number"],
         select {
             width: 100%;
             padding: 12px;
@@ -146,6 +156,7 @@
         input[type="date"]:focus,
         input[type="time"]:focus,
         input[type="tel"]:focus,
+        input[type="number"]:focus,
         select:focus {
             outline: none;
             border-color: #007bff;
@@ -213,7 +224,8 @@
 
         /* Page 3 Styles */
         .page3 {
-            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+            /* Update with your actual background image URL */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('./images/bg.jpg');
             background-size: cover;
             background-position: center;
@@ -231,7 +243,9 @@
             padding: 60px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .thank-you-content h1 {
@@ -243,6 +257,42 @@
         .thank-you-content p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
+        }
+
+        .amount-summary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .amount-summary h3 {
+            color: #28a745;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .amount-section {
+            margin-bottom: 15px;
+        }
+
+        .amount-section-title {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            text-decoration: underline;
+        }
+
+        .amount-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            margin-left: 10px;
+            font-size: 1rem;
         }
 
         .back-btn {
@@ -334,6 +384,11 @@
             .price-field {
                 width: 100%;
             }
+
+            .thank-you-content {
+                padding: 30px;
+                margin: 10px;
+            }
         }
     </style>
 </head>
@@ -342,8 +397,6 @@
     <!-- Page 1: Welcome Page -->
     <div class="page page1 active" id="page1">
         <div class="welcome-content">
-            <!-- <h1>Welcome to</h1> -->
-            <!-- <h1>The Great Indian RoadShow 2.0</h1> -->
             <button class="register-btn" onclick="goToPage(2)">Click to fill the form</button>
         </div>
     </div>
@@ -352,10 +405,9 @@
     <div class="page page2" id="page2">
         <div class="form-container">
             <div class="logo">
-                <!-- Your company logo -->
-                <!-- <h2>Great Indian RoadShow 2.0</h2> -->
-                <img src="./images/background.jpg" alt="Company Logo">
-                <img src="./images/logo.jpg" alt="Company Logo">
+                <!-- Replace with your actual image URLs -->
+                <img src="./images/background.jpg" alt="The Great Indian RoadShow 2025">
+                <img src="./images/logo.jpg" alt="Travelbullz Logo">
             </div>
 
             <form id="registrationForm">
@@ -518,12 +570,12 @@
                             <input type="date" id="arrivalDateKolkata" name="arrivalDateKolkata" required>
                         </div>
                         <div class="form-group">
-                            <label for="eta">ETA</label>
-                            <input type="time" id="eta" name="eta">
+                            <label for="eta">ETA <span class="required">*</span></label>
+                            <input type="time" id="eta" name="eta" required >
                         </div>
                         <div class="form-group">
-                            <label for="arrivalFlightNumber">Arrival Flight Number</label>
-                            <input type="text" id="arrivalFlightNumber" name="arrivalFlightNumber">
+                            <label for="arrivalFlightNumber">Arrival Flight Number <span class="required">*</span></label>
+                            <input type="text" id="arrivalFlightNumber" name="arrivalFlightNumber" required>
                         </div>
                     </div>
 
@@ -534,12 +586,64 @@
                             <input type="date" id="departureDateDelhi" name="departureDateDelhi" required>
                         </div>
                         <div class="form-group">
-                            <label for="etd">ETD</label>
-                            <input type="time" id="etd" name="etd">
+                            <label for="etd">ETD <span class="required">*</span></label>
+                            <input type="time" id="etd" name="etd" required>
                         </div>
                         <div class="form-group">
-                            <label for="departureFlightNumber">Departure Flight Number</label>
-                            <input type="text" id="departureFlightNumber" name="departureFlightNumber">
+                            <label for="departureFlightNumber">Departure Flight Number <span class="required">*</span></label>
+                            <input type="text" id="departureFlightNumber" name="departureFlightNumber" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="price-field-container">
+                            <div>
+                                <label>Transfer Requirement</label>
+                                <div><br></div>
+                                <label>Kolkata Airport to Hotel <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="kolkataairportYes" name="kolkataairport" value="Yes"
+                                            onchange="updatekolkataairportPrice()" required>
+                                        <label for="kolkataairportYes">Yes</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="kolkataairportNo" name="kolkataairport" value="No"
+                                            onchange="updatekolkataairportPrice()" required>
+                                        <label for="kolkataairportNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-field-group" id="kolkataairportPriceGroup" style="display: none;">
+                                <label for="kolkataairportPriceField">Price per Car (in THB):</label>
+                                <input type="text" id="kolkataairportPriceField" name="kolkataairportPrice"
+                                    class="price-field" value="950" readonly style="width: 100px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="price-field-container">
+                            <div>
+                                <label>Hotel to Delhi Airport <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="delhiairportYes" name="delhiairport" value="Yes"
+                                            onchange="updatedelhiairportPrice()" required>
+                                        <label for="delhiairportYes">Yes</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="delhiairportNo" name="delhiairport" value="No"
+                                            onchange="updatedelhiairportPrice()" required>
+                                        <label for="delhiairportNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-field-group" id="delhiairportPriceGroup" style="display: none;">
+                                <label for="delhiairportPriceField">Price per Car (in THB):</label>
+                                <input type="text" id="delhiairportPriceField" name="delhiairportPrice"
+                                    class="price-field" value="1050" readonly style="width: 100px;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -548,79 +652,53 @@
                 <div class="form-section">
                     <div class="section-title">Accommodation Information</div>
 
-                    <!-- <div class="form-group">
-                        <div class="price-field-container">
-                            <div>
-                                <label>Early Checkin with Breakfast <span class="required">*</span></label>
-                                <div class="radio-group">
-                                    <div class="radio-item">
-                                        <input type="radio" id="earlyCheckinYes" name="earlyCheckin" value="Yes"
-                                            onchange="updateEarlyCheckinPrice()" required>
-                                        <label for="earlyCheckinYes">Yes</label>
-                                    </div>
-                                    <div class="radio-item">
-                                        <input type="radio" id="earlyCheckinNo" name="earlyCheckin" value="No"
-                                            onchange="updateEarlyCheckinPrice()" required>
-                                        <label for="earlyCheckinNo">No</label>
-                                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="noofrooms">No. of Rooms <span class="required">*</span></label>
+                            <input type="number" id="noofrooms" name="noofrooms" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noofadults">No. of Adults <span class="required">*</span></label>
+                            <input type="number" id="noofadults" name="noofadults" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Bed Type <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="king" name="bedtype" value="King" required>
+                                    <label for="king">King</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="twin" name="bedtype" value="Twin" required>
+                                    <label for="twin">Twin</label>
                                 </div>
                             </div>
-                            <div class="price-field-group" id="earlyCheckinPriceGroup" style="display: none;">
-                                <label for="earlyCheckinPriceField">Price per person (in THB):</label>
-                                <input type="text" id="earlyCheckinPriceField" name="earlyCheckinPrice"
-                                    class="price-field" value="2000" readonly style="width: 100px;">
-                            </div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="form-group">
                         <div class="price-field-container">
                             <div>
-                                <label >Kolkata Hotel - The Lalit Great Eastern </label>
                                 <label>Check-in Date <span class="required">*</span></label>
                                 <div class="radio-group">
                                     <div class="radio-item">
-                                        <input type="radio" id="checkinDate17" name="checkinDate" value="17 August"
-                                            onchange="updateCheckinDateOptions()" required>
-                                        <label for="checkinDate17">17 August</label>
+                                        <input type="radio" id="Checkin17aug" name="Checkin" value="17 August"
+                                            onchange="updateCheckinPrice()" required>
+                                        <label for="Checkin17aug">17 August</label>
                                     </div>
                                     <div class="radio-item">
-                                        <input type="radio" id="checkinDate18" name="checkinDate" value="18 August"
-                                            onchange="updateCheckinDateOptions()" required>
-                                        <label for="checkinDate18">18 August</label>
+                                        <input type="radio" id="Checkin18aug" name="Checkin" value="18 August"
+                                            onchange="updateCheckinPrice()" required>
+                                        <label for="Checkin18aug">18 August</label>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="conditional-section" id="checkinDateOccupancy" style="display: none;">
-                        <div class="form-group">
-                            <div class="price-field-container">
-                                <div>
-                                    <label>Occupancy <span class="required">*</span></label>
-                                    <div class="radio-group">
-                                        <div class="radio-item">
-                                            <input type="radio" id="checkinSingle" name="checkinOccupancy"
-                                                value="Single" onchange="updateCheckinOccupancyPrice()">
-                                            <label for="checkinSingle">Single</label>
-                                        </div>
-                                        <div class="radio-item">
-                                            <input type="radio" id="checkinDouble" name="checkinOccupancy"
-                                                value="Double" onchange="updateCheckinOccupancyPrice()">
-                                            <label for="checkinDouble">Double</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="price-field-group" id="checkinOccupancyPriceGroup" style="display: none;">
-                                    <label for="checkinOccupancyPriceField">Price (in THB):</label>
-                                    <input type="text" id="checkinOccupancyPriceField" name="checkinOccupancyPrice"
-                                        class="price-field" readonly style="width: 100px;">
-                                </div>
+                            <div class="price-field-group" id="CheckinPriceGroup" style="display: none;">
+                                <label for="CheckinPriceField">Price per room (in THB):</label>
+                                <input type="text" id="CheckinPriceField" name="CheckinPrice" class="price-field"
+                                    value="3300" readonly style="width: 100px;">
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <br>
                     </div>
 
                     <div class="form-group">
@@ -642,15 +720,12 @@
                                 </div>
                             </div>
                             <div class="price-field-group" id="earlyCheckinPriceGroup" style="display: none;">
-                                <label for="earlyCheckinPriceField">Price per person (in THB):</label>
+                                <label for="earlyCheckinPriceField">Price per room (in THB):</label>
                                 <input type="text" id="earlyCheckinPriceField" name="earlyCheckinPrice"
                                     class="price-field" value="2000" readonly style="width: 100px;">
                             </div>
                         </div>
                     </div>
-
-                    <!-- Conditional section for 17 August check-in -->
-
                 </div>
 
                 <!-- Package Calculator Section -->
@@ -659,6 +734,10 @@
 
                     <div class="form-group">
                         <label>Package Type (Breakfast incl.) <span class="required">*</span></label>
+                        <label class="form-italic"><em>Kolkata 5-star Hotel</em></label>
+                        <label class="form-italic"><em>Amritsar 5-star Hotel</em></label>
+                        <label class="form-italic"><em>Ludhiana 5-star Hotel</em></label>
+                        <label class="form-italic"><em>Delhi 4-star or 5-star Hotel</em></label>
                         <div class="radio-group">
                             <div class="radio-item">
                                 <input type="radio" id="package4nights" name="packageType" value="4 Nights / 5 Days"
@@ -675,65 +754,30 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Hotel Star Category <span class="required">*</span></label>
-                        <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="star4" name="hotelCategory" value="4-star" required
-                                    onchange="calculatePackagePrice()">
-                                <label for="star4">4-star</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="star5" name="hotelCategory" value="5-star" required
-                                    onchange="calculatePackagePrice()">
-                                <label for="star5">5-star</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <div class="price-field-container">
                             <div>
-                                <label>Occupancy <span class="required">*</span></label>
+                                <label>Delhi Hotel Star Category <span class="required">*</span></label>
                                 <div class="radio-group">
                                     <div class="radio-item">
-                                        <input type="radio" id="single" name="occupancy" value="Single" required
+                                        <input type="radio" id="star4" name="hotelCategory" value="4-star" required
                                             onchange="calculatePackagePrice()">
-                                        <label for="single">Single</label>
+                                        <label for="star4">4-star</label>
                                     </div>
                                     <div class="radio-item">
-                                        <input type="radio" id="double" name="occupancy" value="Double" required
+                                        <input type="radio" id="star5" name="hotelCategory" value="5-star" required
                                             onchange="calculatePackagePrice()">
-                                        <label for="double">Double</label>
+                                        <label for="star5">5-star</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="price-field-group" id="packagePriceGroup" style="display: none;">
-                                <label for="packagePriceField">Price per person (in THB):</label>
+                                <label for="packagePriceField">Price per room (in THB):</label>
                                 <input type="text" id="packagePriceField" name="packagePrice" class="price-field"
                                     readonly style="width: 100px;">
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Reference Section -->
-                <!-- <div class="form-section">
-                    <div class="section-title">Reference Information</div>
-                    
-                    <div class="form-group">
-                        <label>Reference By</label>
-                        <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="referenceJyoti" name="referenceBy" value="Khun Jyoti">
-                                <label for="referenceJyoti">Khun Jyoti</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="referenceBenj" name="referenceBy" value="Khun Benj">
-                                <label for="referenceBenj">Khun Benj</label>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
 
                 <button type="submit" class="submit-btn">Submit Registration</button>
             </form>
@@ -746,6 +790,13 @@
             <h1>Thank You!</h1>
             <p>Your registration has been submitted successfully.</p>
             <p>We will contact you soon with further details.</p>
+
+            <!-- Amount Summary Section -->
+            <div class="amount-summary" id="amountSummary" style="display: none;">
+                <h3>Your Selected Services & Pricing</h3>
+                <div id="amountBreakdown"></div>
+            </div>
+
             <button class="back-btn" onclick="goToPage(1)">Back to Home</button>
         </div>
     </div>
@@ -754,30 +805,24 @@
         // Store form data globally
         let formData = {};
 
+        // *** EMAIL CONFIGURATION - UPDATE THESE VALUES ***
+        const EMAIL_CONFIG = {
+            CC_EMAIL: 'piyush@travelbullz.com',                 // CC email for notifications
+            SUBJECT: 'Registration Confirmation - The Great Indian RoadShow 2025'
+        };
+
         // *** REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL ***
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRNSaE1IrJFaJ-GGUZLJCVUR0x6JQSj51q9vHVmtvsm1z75yzv81ixuoFae5xJo9c/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyY3xFA73bdZ8VN-JLJju-MSnzc-9MH5gz_w1-4q9aId7jFFQNX40GOoRHOSbr7ZSBL/exec';
 
         // Package pricing data
         const packagePrices = {
             '4 Nights / 5 Days': {
-                '4-star': {
-                    'Single': 13900,
-                    'Double': 7950
-                },
-                '5-star': {
-                    'Single': 16469,
-                    'Double': 9234
-                }
+                '4-star': 13900,
+                '5-star': 16469
             },
             '5 Nights / 6 Days (extra day in Delhi)': {
-                '4-star': {
-                    'Single': 16850,
-                    'Double': 9425
-                },
-                '5-star': {
-                    'Single': 21970,
-                    'Double': 11985
-                }
+                '4-star': 16850,
+                '5-star': 21970
             }
         };
 
@@ -785,10 +830,9 @@
         function calculatePackagePrice() {
             const packageType = document.querySelector('input[name="packageType"]:checked');
             const hotelCategory = document.querySelector('input[name="hotelCategory"]:checked');
-            const occupancy = document.querySelector('input[name="occupancy"]:checked');
 
-            if (packageType && hotelCategory && occupancy) {
-                const price = packagePrices[packageType.value][hotelCategory.value][occupancy.value];
+            if (packageType && hotelCategory) {
+                const price = packagePrices[packageType.value][hotelCategory.value];
                 document.getElementById('packagePriceGroup').style.display = 'flex';
                 document.getElementById('packagePriceField').value = `${price.toLocaleString()}`;
             } else {
@@ -808,58 +852,265 @@
             }
         }
 
-        // Function to update checkin date options and show/hide occupancy section
-        function updateCheckinDateOptions() {
-            const checkinDate17 = document.getElementById('checkinDate17');
-            const checkinDate18 = document.getElementById('checkinDate18');
-            const occupancySection = document.getElementById('checkinDateOccupancy');
-            const checkinSingle = document.getElementById('checkinSingle');
-            const checkinDouble = document.getElementById('checkinDouble');
-            const priceGroup = document.getElementById('checkinOccupancyPriceGroup');
+        // Function to update checkin date options and show/hide price
+        function updateCheckinPrice() {
+            const Checkin17aug = document.getElementById('Checkin17aug');
+            const priceGroup = document.getElementById('CheckinPriceGroup');
 
-            if (checkinDate17 && checkinDate17.checked) {
-                // Show occupancy section for 17 August
-                occupancySection.style.display = 'block';
-                // Make occupancy required for 17 August
-                checkinSingle.required = true;
-                checkinDouble.required = true;
-            } else if (checkinDate18 && checkinDate18.checked) {
-                // Hide occupancy section for 18 August
-                occupancySection.style.display = 'none';
-                priceGroup.style.display = 'none';
-                // Clear occupancy selection and remove required
-                checkinSingle.checked = false;
-                checkinDouble.checked = false;
-                checkinSingle.required = false;
-                checkinDouble.required = false;
-                // Clear price field
-                document.getElementById('checkinOccupancyPriceField').value = '';
+            if (Checkin17aug && Checkin17aug.checked) {
+                priceGroup.style.display = 'flex';
             } else {
-                // Hide everything if no date is selected
-                occupancySection.style.display = 'none';
                 priceGroup.style.display = 'none';
-                checkinSingle.required = false;
-                checkinDouble.required = false;
             }
         }
 
-        // Function to update check-in occupancy price
-        function updateCheckinOccupancyPrice() {
-            const checkinSingle = document.getElementById('checkinSingle');
-            const checkinDouble = document.getElementById('checkinDouble');
-            const priceGroup = document.getElementById('checkinOccupancyPriceGroup');
-            const priceField = document.getElementById('checkinOccupancyPriceField');
+        // Function to update Kolkata Airport to Hotel price display
+        function updatekolkataairportPrice() {
+            const kolkataairportYes = document.getElementById('kolkataairportYes');
+            const priceGroup = document.getElementById('kolkataairportPriceGroup');
 
-            if (checkinSingle && checkinSingle.checked) {
+            if (kolkataairportYes && kolkataairportYes.checked) {
                 priceGroup.style.display = 'flex';
-                priceField.value = '2929';
-            } else if (checkinDouble && checkinDouble.checked) {
-                priceGroup.style.display = 'flex';
-                priceField.value = '3319';
             } else {
                 priceGroup.style.display = 'none';
-                priceField.value = '';
             }
+        }
+
+        // Function to update Hotel to Delhi Airport price display
+        function updatedelhiairportPrice() {
+            const delhiairportYes = document.getElementById('delhiairportYes');
+            const priceGroup = document.getElementById('delhiairportPriceGroup');
+
+            if (delhiairportYes && delhiairportYes.checked) {
+                priceGroup.style.display = 'flex';
+            } else {
+                priceGroup.style.display = 'none';
+            }
+        }
+
+        // Function to calculate total amount and display breakdown
+        function calculateAndDisplayAmounts() {
+            let breakdown = {
+                travel: [],
+                accommodation: [],
+                package: []
+            };
+
+            // Travel section
+            const kolkataTransfer = document.querySelector('input[name="kolkataairport"]:checked');
+            if (kolkataTransfer && kolkataTransfer.value === 'Yes') {
+                breakdown.travel.push({
+                    service: 'Kolkata Airport to Hotel',
+                    status: 'Yes',
+                    price: 950
+                });
+            }
+
+            const delhiTransfer = document.querySelector('input[name="delhiairport"]:checked');
+            if (delhiTransfer && delhiTransfer.value === 'Yes') {
+                breakdown.travel.push({
+                    service: 'Hotel to Delhi Airport',
+                    status: 'Yes',
+                    price: 1050
+                });
+            }
+
+            // Accommodation section
+            const checkinDate = document.querySelector('input[name="Checkin"]:checked');
+            if (checkinDate && checkinDate.value === '17 August') {
+                breakdown.accommodation.push({
+                    service: 'Check-in Date',
+                    status: '17 August',
+                    price: 3300
+                });
+            }
+
+            const earlyCheckin = document.querySelector('input[name="earlyCheckin"]:checked');
+            if (earlyCheckin && earlyCheckin.value === 'Yes') {
+                breakdown.accommodation.push({
+                    service: 'Early Checkin',
+                    status: 'Yes',
+                    price: 2000
+                });
+            }
+
+            // Package section
+            const packageType = document.querySelector('input[name="packageType"]:checked');
+            const hotelCategory = document.querySelector('input[name="hotelCategory"]:checked');
+            if (packageType && hotelCategory) {
+                const packagePrice = parseInt(document.getElementById('packagePriceField').value.replace(/,/g, ''));
+                breakdown.package.push({
+                    service: 'Package Type',
+                    status: packageType.value,
+                    price: null
+                });
+                breakdown.package.push({
+                    service: 'Delhi Hotel Star Category',
+                    status: hotelCategory.value,
+                    price: packagePrice
+                });
+            }
+
+            // Display breakdown if there are items
+            let html = '';
+
+            if (breakdown.travel.length > 0) {
+                html += '<div class="amount-section"><div class="amount-section-title">Travel:</div>';
+                breakdown.travel.forEach(item => {
+                    html += `<div class="amount-item">
+                        <span>${item.service} → ${item.status}</span>
+                        <span></span>
+                    </div>`;
+                    html += `<div class="amount-item">
+                        <span>Price per Car (in THB): ${item.price}</span>
+                        <span></span>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+
+            if (breakdown.accommodation.length > 0) {
+                html += '<div class="amount-section"><div class="amount-section-title">Accommodation:</div>';
+                breakdown.accommodation.forEach(item => {
+                    html += `<div class="amount-item">
+                        <span>${item.service} → ${item.status}</span>
+                        <span></span>
+                    </div>`;
+                    html += `<div class="amount-item">
+                        <span>Price per room (in THB): ${item.price}</span>
+                        <span></span>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+
+            if (breakdown.package.length > 0) {
+                html += '<div class="amount-section"><div class="amount-section-title">Package:</div>';
+                breakdown.package.forEach(item => {
+                    html += `<div class="amount-item">
+                        <span>${item.service} → ${item.status}</span>
+                        <span></span>
+                    </div>`;
+                    if (item.price) {
+                        html += `<div class="amount-item">
+                            <span>Price per room (in THB): ${item.price.toLocaleString()}</span>
+                            <span></span>
+                        </div>`;
+                    }
+                });
+                html += '</div>';
+            }
+
+            if (html) {
+                document.getElementById('amountBreakdown').innerHTML = html;
+                document.getElementById('amountSummary').style.display = 'block';
+            }
+        }
+
+        // Function to generate email content
+        function generateEmailContent(formData) {
+            const firstName = formData.firstName || '';
+            const lastName = formData.lastName || '';
+
+            let emailBody = `
+<div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; background-color: #ffffff; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #007bff; padding-bottom: 20px;">
+        <img src="https://drive.google.com/uc?export=view&id=1Q84AGSQDt9YioQMhbklmh5fJ6dV2U4wu" alt="Great Indian RoadShow Logo" style="max-width: 300px; height: auto; margin-bottom: 10px;">
+        <h1 style="color: #007bff; margin: 0; font-size: 24px;">The Great Indian RoadShow 2025</h1>
+    </div>
+
+    <div style="color: #333333; line-height: 1.6;">
+        <p style="font-size: 16px; margin-bottom: 20px;">Dear <strong>${firstName} ${lastName}</strong>,</p>
+
+        <p style="font-size: 16px; margin-bottom: 20px;">Thank you for registering for <strong>The Great Indian RoadShow 2025!</strong> We have received your registration and are excited to have you join us for this incredible journey.</p>
+
+        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h2 style="color: #007bff; margin-top: 0; text-decoration: underline; font-size: 18px;"><strong>PERSONAL INFORMATION</strong></h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Name:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${firstName} ${lastName}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Business/Organization:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.businessOrganization || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Email:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.email || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Mobile:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.countryCode || ''} ${formData.mobileNumber || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Nationality:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.nationality || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Passport:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.passport || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Gender:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.gender || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0;"><strong>Meal Preference:</strong></td><td style="padding: 5px 0;">${formData.mealPreference || 'N/A'}</td></tr>
+            </table>
+        </div>
+
+        <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h2 style="color: #007bff; margin-top: 0; text-decoration: underline; font-size: 18px;"><strong>TRAVEL INFORMATION</strong></h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Arrival Date (Kolkata):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.arrivalDateKolkata || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>ETA:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.eta || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Arrival Flight:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.arrivalFlightNumber || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Departure Date (Delhi):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.departureDateDelhi || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>ETD:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.etd || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Departure Flight:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.departureFlightNumber || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Kolkata Airport to Hotel:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.kolkataairport || 'N/A'}</td></tr>`;
+
+            if (formData.kolkataairport === 'Yes') {
+                emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Price per Car (THB):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">950</td></tr>`;
+            }
+
+            emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Hotel to Delhi Airport:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.delhiairport || 'N/A'}</td></tr>`;
+
+            if (formData.delhiairport === 'Yes') {
+                emailBody += `<tr><td style="padding: 5px 0;"><strong>Price per Car (THB):</strong></td><td style="padding: 5px 0;">1050</td></tr>`;
+            }
+
+            emailBody += `</table>
+        </div>
+
+        <div style="background-color: #f0f8e8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h2 style="color: #007bff; margin-top: 0; text-decoration: underline; font-size: 18px;"><strong>ACCOMMODATION & PACKAGES</strong></h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>No. of Rooms:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.noofrooms || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>No. of Adults:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.noofadults || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Bed Type:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.bedtype || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Check-in Date:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.Checkin || 'N/A'}</td></tr>`;
+
+            if (formData.Checkin === '17 August') {
+                emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Check-in Price per room (THB):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">3,300</td></tr>`;
+            }
+
+            emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Early Checkin:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.earlyCheckin || 'N/A'}</td></tr>`;
+
+            if (formData.earlyCheckin === 'Yes') {
+                emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Early Checkin Price per room (THB):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">2,000</td></tr>`;
+            }
+
+            emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Package Type:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.packageType || 'N/A'}</td></tr>
+                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Delhi Hotel Category:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.hotelCategory || 'N/A'}</td></tr>`;
+
+            if (formData.packagePrice) {
+                emailBody += `<tr><td style="padding: 5px 0;"><strong>Package Price per room (THB):</strong></td><td style="padding: 5px 0;">${formData.packagePrice}</td></tr>`;
+            }
+
+            emailBody += `</table>
+        </div>
+
+        <div style="background-color: #007bff; color: white; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center;">
+            <h3 style="margin: 0; font-size: 18px;">What Happens Next?</h3>
+            <p style="margin: 10px 0 0 0;">Our team will contact you soon with detailed itinerary, payment instructions, and further information about your upcoming journey.</p>
+        </div>
+
+        <p style="font-size: 16px; margin-bottom: 30px;">Thank you for choosing us for your Indian adventure. We look forward to providing you with an unforgettable experience!</p>
+
+        <div style="text-align: center; border-top: 2px solid #007bff; padding-top: 20px;">
+            <p style="font-size: 16px; margin-bottom: 10px;"><strong>Best regards,</strong><br><strong>The Travelbullz Team</strong></p>
+            <img src="https://drive.google.com/uc?export=view&id=11TaZYK3zlW4z1OUSKPDMWVjfpSFhFO1E" alt="Travelbullz Logo" style="max-width: 150px; height: auto; margin: 10px 0;">
+            <p style="font-size: 12px; color: #666666; margin-top: 20px;">This is an automated confirmation email for The Great Indian RoadShow 2025.<br>For questions, please contact our support team.</p>
+            <p style="font-size: 11px; color: #999999; margin-top: 10px;">
+                To unsubscribe from future emails, please contact: unsubscribe@travelbullz.com<br>
+                Travelbullz | Address: Your Business Address | Phone: Your Phone Number
+            </p>
+        </div>
+    </div>
+</div>
+`;
+
+            return emailBody;
         }
 
         // Function to navigate between pages
@@ -873,44 +1124,74 @@
             document.getElementById(`page${pageNumber}`).classList.add('active');
         }
 
-        // Function to send data to Google Sheets
+        // Function to send data to Google Sheets with email functionality
         async function sendToGoogleSheets(data) {
             try {
                 console.log('Sending data to Google Sheets:', data);
 
-                // Create a form to submit data (this bypasses CORS issues)
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = GOOGLE_SCRIPT_URL;
-                form.target = 'hidden_iframe';
-                form.style.display = 'none';
+                // Add email configuration to the data
+                data.ccEmail = EMAIL_CONFIG.CC_EMAIL;
+                data.emailSubject = EMAIL_CONFIG.SUBJECT;
+                data.emailBody = generateEmailContent(data);
 
-                // Add all form data as hidden inputs
-                for (const [key, value] of Object.entries(data)) {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = value || '';
-                    form.appendChild(input);
+                console.log('Email config added:', {
+                    ccEmail: data.ccEmail,
+                    toEmail: data.email
+                });
+
+                // Try fetch first (more reliable)
+                try {
+                    const response = await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(data)
+                    });
+
+                    console.log('Fetch submission completed');
+                    return { status: 'success' };
+                } catch (fetchError) {
+                    console.log('Fetch failed, trying form submission:', fetchError);
+
+                    // Fallback to form submission
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = GOOGLE_SCRIPT_URL;
+                    form.target = 'hidden_iframe';
+                    form.style.display = 'none';
+
+                    // Add all form data as hidden inputs
+                    for (const [key, value] of Object.entries(data)) {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        input.value = value || '';
+                        form.appendChild(input);
+                    }
+
+                    // Create hidden iframe to capture response
+                    let iframe = document.getElementById('hidden_iframe');
+                    if (!iframe) {
+                        iframe = document.createElement('iframe');
+                        iframe.name = 'hidden_iframe';
+                        iframe.id = 'hidden_iframe';
+                        iframe.style.display = 'none';
+                        iframe.onload = function () {
+                            console.log('Form submission completed');
+                        };
+                        document.body.appendChild(iframe);
+                    }
+
+                    // Submit form
+                    document.body.appendChild(form);
+                    console.log('Submitting form to:', GOOGLE_SCRIPT_URL);
+                    form.submit();
+                    document.body.removeChild(form);
+
+                    return { status: 'success' };
                 }
-
-                // Create hidden iframe to capture response
-                let iframe = document.getElementById('hidden_iframe');
-                if (!iframe) {
-                    iframe = document.createElement('iframe');
-                    iframe.name = 'hidden_iframe';
-                    iframe.id = 'hidden_iframe';
-                    iframe.style.display = 'none';
-                    document.body.appendChild(iframe);
-                }
-
-                // Submit form
-                document.body.appendChild(form);
-                form.submit();
-                document.body.removeChild(form);
-
-                console.log('Data sent successfully via form submission');
-                return { status: 'success' };
 
             } catch (error) {
                 console.error('Error sending to Google Sheets:', error);
@@ -922,51 +1203,24 @@
         document.getElementById('registrationForm').addEventListener('submit', async function (e) {
             e.preventDefault();
 
-            // Validate gender selection
-            const gender = document.querySelector('input[name="gender"]:checked');
-            if (!gender) {
-                alert('Please select your gender.');
-                return;
-            }
+            // Validate all required fields
+            const requiredValidations = [
+                { field: 'input[name="gender"]:checked', message: 'Please select your gender.' },
+                { field: 'input[name="mealPreference"]:checked', message: 'Please select a meal preference.' },
+                { field: 'input[name="kolkataairport"]:checked', message: 'Please select Kolkata airport transfer option.' },
+                { field: 'input[name="delhiairport"]:checked', message: 'Please select Delhi airport transfer option.' },
+                { field: 'input[name="Checkin"]:checked', message: 'Please select check-in date.' },
+                { field: 'input[name="earlyCheckin"]:checked', message: 'Please select early checkin option.' },
+                { field: 'input[name="bedtype"]:checked', message: 'Please select bed type.' },
+                { field: 'input[name="packageType"]:checked', message: 'Please select package type.' },
+                { field: 'input[name="hotelCategory"]:checked', message: 'Please select hotel category.' }
+            ];
 
-            // Validate meal preference
-            const mealPreference = document.querySelector('input[name="mealPreference"]:checked');
-            if (!mealPreference) {
-                alert('Please select a meal preference.');
-                return;
-            }
-
-            // Validate early checkin selection
-            const earlyCheckin = document.querySelector('input[name="earlyCheckin"]:checked');
-            if (!earlyCheckin) {
-                alert('Please select early checkin option.');
-                return;
-            }
-
-            // Validate checkin date
-            const checkinDate = document.querySelector('input[name="checkinDate"]:checked');
-            if (!checkinDate) {
-                alert('Please select check-in date.');
-                return;
-            }
-
-            // Validate occupancy for 17 August
-            if (checkinDate && checkinDate.value === '17 August') {
-                const checkinOccupancy = document.querySelector('input[name="checkinOccupancy"]:checked');
-                if (!checkinOccupancy) {
-                    alert('Please select occupancy for check-in date 17 August.');
+            for (let validation of requiredValidations) {
+                if (!document.querySelector(validation.field)) {
+                    alert(validation.message);
                     return;
                 }
-            }
-
-            // Validate package selection
-            const packageType = document.querySelector('input[name="packageType"]:checked');
-            const hotelCategory = document.querySelector('input[name="hotelCategory"]:checked');
-            const occupancy = document.querySelector('input[name="occupancy"]:checked');
-
-            if (!packageType || !hotelCategory || !occupancy) {
-                alert('Please complete all package selection fields.');
-                return;
             }
 
             // Show loading state
@@ -984,21 +1238,6 @@
                 formData[key] = value;
             }
 
-            // Ensure prices are captured correctly
-            if (document.getElementById('earlyCheckinYes').checked) {
-                formData.earlyCheckinPrice = '2000';
-            }
-
-            // Handle check-in occupancy price based on selection
-            const checkinOccupancySelection = document.querySelector('input[name="checkinOccupancy"]:checked');
-            if (checkinOccupancySelection) {
-                if (checkinOccupancySelection.value === 'Single') {
-                    formData.checkinOccupancyPrice = '2929';
-                } else if (checkinOccupancySelection.value === 'Double') {
-                    formData.checkinOccupancyPrice = '3319';
-                }
-            }
-
             // Add submission timestamp
             formData.submissionTime = new Date().toLocaleString();
 
@@ -1006,13 +1245,16 @@
             console.log('Form Data:', formData);
             displayFormData();
 
-            // Send to Google Sheets
+            // Calculate and display amounts on thank you page
+            calculateAndDisplayAmounts();
+
+            // Send to Google Sheets with email
             if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
                 try {
                     const result = await sendToGoogleSheets(formData);
 
                     if (result.status === 'success') {
-                        console.log('Data successfully sent to Google Sheets!');
+                        console.log('Data successfully sent to Google Sheets and email sent!');
                         goToPage(3);
                     } else {
                         console.error('Error sending to Google Sheets:', result.message);
@@ -1056,16 +1298,16 @@
             console.log('Departure Date Delhi:', formData.departureDateDelhi);
             console.log('ETD:', formData.etd || 'Not provided');
             console.log('Departure Flight Number:', formData.departureFlightNumber || 'Not provided');
+            console.log('Kolkata Airport Transfer:', formData.kolkataairport);
+            console.log('Delhi Airport Transfer:', formData.delhiairport);
+            console.log('No. of Rooms:', formData.noofrooms);
+            console.log('No. of Adults:', formData.noofadults);
+            console.log('Bed Type:', formData.bedtype);
+            console.log('Check-in Date:', formData.Checkin);
             console.log('Early Checkin:', formData.earlyCheckin);
-            console.log('Early Checkin Price:', formData.earlyCheckinPrice || 'Not applicable');
-            console.log('Checkin Date:', formData.checkinDate);
-            console.log('Checkin Occupancy:', formData.checkinOccupancy || 'Not applicable');
-            console.log('Checkin Occupancy Price:', formData.checkinOccupancyPrice || 'Not applicable');
             console.log('Package Type:', formData.packageType);
             console.log('Hotel Category:', formData.hotelCategory);
-            console.log('Occupancy:', formData.occupancy);
             console.log('Package Price:', formData.packagePrice);
-            console.log('Reference By:', formData.referenceBy || 'Not provided');
             console.log('Submission Time:', formData.submissionTime);
             console.log('========================');
         }
