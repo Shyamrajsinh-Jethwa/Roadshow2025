@@ -29,9 +29,8 @@
 
         /* Page 1 Styles */
         .page1 {
-            /* Update with your actual background image URL */
             background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-                url('./images/background.jpg');
+                url('./images/Great\ India\ Roadhow.jpg');
             background-size: cover;
             background-position: center;
             justify-content: center;
@@ -72,7 +71,6 @@
 
         /* Page 2 Styles */
         .page2 {
-            /* Update with your actual background image URL */
             background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
                 url('./images/bg.jpg');
             background-size: cover;
@@ -224,7 +222,6 @@
 
         /* Page 3 Styles */
         .page3 {
-            /* Update with your actual background image URL */
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('./images/bg.jpg');
             background-size: cover;
@@ -405,9 +402,8 @@
     <div class="page page2" id="page2">
         <div class="form-container">
             <div class="logo">
-                <!-- Replace with your actual image URLs -->
-                <img src="./images/background.jpg" alt="The Great Indian RoadShow 2025">
                 <img src="./images/logo.jpg" alt="Travelbullz Logo">
+                <img src="./images/formImage.jpg" alt="The Great Indian RoadShow 2025">
             </div>
 
             <form id="registrationForm">
@@ -463,7 +459,7 @@
                                     <option value="+30">🇬🇷 +30</option>
                                     <option value="+852">🇭🇰 +852</option>
                                     <option value="+36">🇭🇺 +36</option>
-                                    <option value="+91">🇮🇳 +91</option>
+                                    <option value="+91" selected>🇮🇳 +91</option>
                                     <option value="+62">🇮🇩 +62</option>
                                     <option value="+98">🇮🇷 +98</option>
                                     <option value="+964">🇮🇶 +964</option>
@@ -497,7 +493,7 @@
                                     <option value="+94">🇱🇰 +94</option>
                                     <option value="+46">🇸🇪 +46</option>
                                     <option value="+41">🇨🇭 +41</option>
-                                    <option value="+66" selected>🇹🇭 +66</option>
+                                    <option value="+66">🇹🇭 +66</option>
                                     <option value="+90">🇹🇷 +90</option>
                                     <option value="+971">🇦🇪 +971</option>
                                     <option value="+44">🇬🇧 +44</option>
@@ -571,7 +567,7 @@
                         </div>
                         <div class="form-group">
                             <label for="eta">ETA <span class="required">*</span></label>
-                            <input type="time" id="eta" name="eta" required >
+                            <input type="time" id="eta" name="eta" required>
                         </div>
                         <div class="form-group">
                             <label for="arrivalFlightNumber">Arrival Flight Number <span class="required">*</span></label>
@@ -648,33 +644,30 @@
                     </div>
                 </div>
 
-                <!-- Accommodation Section -->
+                <!-- Accommodation Section with Dynamic Rooms -->
                 <div class="form-section">
                     <div class="section-title">Accommodation Information</div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="noofrooms">No. of Rooms <span class="required">*</span></label>
-                            <input type="number" id="noofrooms" name="noofrooms" min="1" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="noofadults">No. of Adults <span class="required">*</span></label>
-                            <input type="number" id="noofadults" name="noofadults" min="1" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Bed Type <span class="required">*</span></label>
-                            <div class="radio-group">
-                                <div class="radio-item">
-                                    <input type="radio" id="king" name="bedtype" value="King" required>
-                                    <label for="king">King</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="twin" name="bedtype" value="Twin" required>
-                                    <label for="twin">Twin</label>
-                                </div>
+                    <div class="form-group">
+                        <label>No. of Rooms <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="rooms1" name="noofrooms" value="1" required onchange="updateRoomDetails()">
+                                <label for="rooms1">1 Room</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="rooms2" name="noofrooms" value="2" required onchange="updateRoomDetails()">
+                                <label for="rooms2">2 Rooms</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="rooms3" name="noofrooms" value="3" required onchange="updateRoomDetails()">
+                                <label for="rooms3">3 Rooms</label>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Dynamic Room Details Container -->
+                    <div id="roomDetailsContainer"></div>
 
                     <div class="form-group">
                         <div class="price-field-container">
@@ -787,6 +780,9 @@
     <!-- Page 3: Thank You Page -->
     <div class="page page3" id="page3">
         <div class="thank-you-content">
+            <div class="logo">
+                <img src="./images/logo.jpg" alt="Travelbullz Logo">
+            </div>
             <h1>Thank You!</h1>
             <p>Your registration has been submitted successfully.</p>
             <p>We will contact you soon with further details.</p>
@@ -805,14 +801,8 @@
         // Store form data globally
         let formData = {};
 
-        // *** EMAIL CONFIGURATION - UPDATE THESE VALUES ***
-        const EMAIL_CONFIG = {
-            CC_EMAIL: 'piyush@travelbullz.com',                 // CC email for notifications
-            SUBJECT: 'Registration Confirmation - The Great Indian RoadShow 2025'
-        };
-
-        // *** REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL ***
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyY3xFA73bdZ8VN-JLJju-MSnzc-9MH5gz_w1-4q9aId7jFFQNX40GOoRHOSbr7ZSBL/exec';
+        // *** UPDATE THIS WITH YOUR POWER AUTOMATE OR WEBHOOK URL ***
+        const SUBMISSION_URL ='https://defaultaadc7351e8e04a93a13c011d171ca1.0b.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/0ef9aa8ddff541c6b3705ccf3f9682eb/triggers/manual/paths/invoke/?api-version=1&tenantId=tId&environmentName=Default-aadc7351-e8e0-4a93-a13c-011d171ca10b&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=w_0N5D_EdO85EOeBHB3xk9k7VElghmNQ6TfxLDMofjw';
 
         // Package pricing data
         const packagePrices = {
@@ -825,6 +815,64 @@
                 '5-star': 21970
             }
         };
+
+        // Function to dynamically update room details based on selection
+        function updateRoomDetails() {
+            const selectedRooms = document.querySelector('input[name="noofrooms"]:checked');
+            const container = document.getElementById('roomDetailsContainer');
+            
+            if (!selectedRooms) {
+                container.innerHTML = '';
+                return;
+            }
+            
+            const numRooms = parseInt(selectedRooms.value);
+            let html = '';
+            
+            for (let i = 1; i <= numRooms; i++) {
+                html += `
+                <div class="conditional-section" id="room${i}Details">
+                    <h4 style="color: #007bff; margin-bottom: 15px;">Room ${i} Details</h4>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>No. of Adults - Room ${i} <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="adults${i}_1" name="noofadultsRoom${i}" value="1" required>
+                                    <label for="adults${i}_1">1 Adult</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="adults${i}_2" name="noofadultsRoom${i}" value="2" required>
+                                    <label for="adults${i}_2">2 Adults</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="adults${i}_3" name="noofadultsRoom${i}" value="3" required>
+                                    <label for="adults${i}_3">3 Adults</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Bed Type - Room ${i} <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="bed${i}_king" name="bedtypeRoom${i}" value="King" required>
+                                    <label for="bed${i}_king">King</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="bed${i}_twin" name="bedtypeRoom${i}" value="Twin" required>
+                                    <label for="bed${i}_twin">Twin</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
 
         // Function to calculate package price
         function calculatePackagePrice() {
@@ -885,6 +933,76 @@
                 priceGroup.style.display = 'flex';
             } else {
                 priceGroup.style.display = 'none';
+            }
+        }
+
+        // Function to prepare data for submission
+        function prepareDataForSubmission(formData) {
+            const numRooms = formData.noofrooms ? parseInt(formData.noofrooms) : 0;
+            
+            return {
+                timestamp: new Date().toISOString(),
+                firstName: formData.firstName || '',
+                lastName: formData.lastName || '',
+                businessOrganization: formData.businessOrganization || '',
+                countryCode: formData.countryCode || '',
+                mobileNumber: formData.mobileNumber || '',
+                email: formData.email || '',
+                nationality: formData.nationality || '',
+                passport: formData.passport || '',
+                gender: formData.gender || '',
+                mealPreference: formData.mealPreference || '',
+                arrivalDateKolkata: formData.arrivalDateKolkata || '',
+                eta: formData.eta || '',
+                arrivalFlightNumber: formData.arrivalFlightNumber || '',
+                departureDateDelhi: formData.departureDateDelhi || '',
+                etd: formData.etd || '',
+                departureFlightNumber: formData.departureFlightNumber || '',
+                kolkataAirport: formData.kolkataairport || '',
+                kolkataAirportPrice: formData.kolkataairport === 'Yes' ? '950' : '',
+                delhiAirport: formData.delhiairport || '',
+                delhiAirportPrice: formData.delhiairport === 'Yes' ? '1050' : '',
+                noOfRooms: formData.noofrooms || '',
+                noOfAdultsRoom1: numRooms >= 1 ? formData.noofadultsRoom1 || '' : '',
+                bedTypeRoom1: numRooms >= 1 ? formData.bedtypeRoom1 || '' : '',
+                noOfAdultsRoom2: numRooms >= 2 ? formData.noofadultsRoom2 || '' : '',
+                bedTypeRoom2: numRooms >= 2 ? formData.bedtypeRoom2 || '' : '',
+                noOfAdultsRoom3: numRooms >= 3 ? formData.noofadultsRoom3 || '' : '',
+                bedTypeRoom3: numRooms >= 3 ? formData.bedtypeRoom3 || '' : '',
+                checkinDate: formData.Checkin || '',
+                checkinPrice: formData.Checkin === '17 August' ? '3300' : '',
+                earlyCheckin: formData.earlyCheckin || '',
+                earlyCheckinPrice: formData.earlyCheckin === 'Yes' ? '2000' : '',
+                packageType: formData.packageType || '',
+                delhiHotelCategory: formData.hotelCategory || '',
+                packagePrice: formData.packagePrice || '',
+                submissionTime: formData.submissionTime || new Date().toLocaleString()
+            };
+        }
+
+        // Function to send data to backend
+        async function sendToBackend(data) {
+            try {
+                console.log('Sending data:', data);
+
+                const response = await fetch(SUBMISSION_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    console.log('Data successfully submitted');
+                    return { status: 'success' };
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+            } catch (error) {
+                console.error('Error submitting data:', error);
+                return { status: 'error', message: error.message };
             }
         }
 
@@ -951,7 +1069,7 @@
                 });
             }
 
-            // Display breakdown if there are items
+            // Display breakdown
             let html = '';
 
             if (breakdown.travel.length > 0) {
@@ -1007,196 +1125,12 @@
             }
         }
 
-        // Function to generate email content
-        function generateEmailContent(formData) {
-            const firstName = formData.firstName || '';
-            const lastName = formData.lastName || '';
-
-            let emailBody = `
-<div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; background-color: #ffffff; padding: 20px;">
-    <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #007bff; padding-bottom: 20px;">
-        <img src="https://drive.google.com/uc?export=view&id=1Q84AGSQDt9YioQMhbklmh5fJ6dV2U4wu" alt="Great Indian RoadShow Logo" style="max-width: 300px; height: auto; margin-bottom: 10px;">
-        <h1 style="color: #007bff; margin: 0; font-size: 24px;">The Great Indian RoadShow 2025</h1>
-    </div>
-
-    <div style="color: #333333; line-height: 1.6;">
-        <p style="font-size: 16px; margin-bottom: 20px;">Dear <strong>${firstName} ${lastName}</strong>,</p>
-
-        <p style="font-size: 16px; margin-bottom: 20px;">Thank you for registering for <strong>The Great Indian RoadShow 2025!</strong> We have received your registration and are excited to have you join us for this incredible journey.</p>
-
-        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h2 style="color: #007bff; margin-top: 0; text-decoration: underline; font-size: 18px;"><strong>PERSONAL INFORMATION</strong></h2>
-            <table style="width: 100%; border-collapse: collapse;">
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Name:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${firstName} ${lastName}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Business/Organization:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.businessOrganization || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Email:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.email || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Mobile:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.countryCode || ''} ${formData.mobileNumber || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Nationality:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.nationality || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Passport:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.passport || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;"><strong>Gender:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #dee2e6;">${formData.gender || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0;"><strong>Meal Preference:</strong></td><td style="padding: 5px 0;">${formData.mealPreference || 'N/A'}</td></tr>
-            </table>
-        </div>
-
-        <div style="background-color: #e8f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h2 style="color: #007bff; margin-top: 0; text-decoration: underline; font-size: 18px;"><strong>TRAVEL INFORMATION</strong></h2>
-            <table style="width: 100%; border-collapse: collapse;">
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Arrival Date (Kolkata):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.arrivalDateKolkata || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>ETA:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.eta || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Arrival Flight:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.arrivalFlightNumber || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Departure Date (Delhi):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.departureDateDelhi || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>ETD:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.etd || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Departure Flight:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.departureFlightNumber || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Kolkata Airport to Hotel:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.kolkataairport || 'N/A'}</td></tr>`;
-
-            if (formData.kolkataairport === 'Yes') {
-                emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Price per Car (THB):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">950</td></tr>`;
-            }
-
-            emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;"><strong>Hotel to Delhi Airport:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #bee5eb;">${formData.delhiairport || 'N/A'}</td></tr>`;
-
-            if (formData.delhiairport === 'Yes') {
-                emailBody += `<tr><td style="padding: 5px 0;"><strong>Price per Car (THB):</strong></td><td style="padding: 5px 0;">1050</td></tr>`;
-            }
-
-            emailBody += `</table>
-        </div>
-
-        <div style="background-color: #f0f8e8; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h2 style="color: #007bff; margin-top: 0; text-decoration: underline; font-size: 18px;"><strong>ACCOMMODATION & PACKAGES</strong></h2>
-            <table style="width: 100%; border-collapse: collapse;">
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>No. of Rooms:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.noofrooms || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>No. of Adults:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.noofadults || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Bed Type:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.bedtype || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Check-in Date:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.Checkin || 'N/A'}</td></tr>`;
-
-            if (formData.Checkin === '17 August') {
-                emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Check-in Price per room (THB):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">3,300</td></tr>`;
-            }
-
-            emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Early Checkin:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.earlyCheckin || 'N/A'}</td></tr>`;
-
-            if (formData.earlyCheckin === 'Yes') {
-                emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Early Checkin Price per room (THB):</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">2,000</td></tr>`;
-            }
-
-            emailBody += `<tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Package Type:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.packageType || 'N/A'}</td></tr>
-                <tr><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;"><strong>Delhi Hotel Category:</strong></td><td style="padding: 5px 0; border-bottom: 1px solid #c3e6cb;">${formData.hotelCategory || 'N/A'}</td></tr>`;
-
-            if (formData.packagePrice) {
-                emailBody += `<tr><td style="padding: 5px 0;"><strong>Package Price per room (THB):</strong></td><td style="padding: 5px 0;">${formData.packagePrice}</td></tr>`;
-            }
-
-            emailBody += `</table>
-        </div>
-
-        <div style="background-color: #007bff; color: white; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center;">
-            <h3 style="margin: 0; font-size: 18px;">What Happens Next?</h3>
-            <p style="margin: 10px 0 0 0;">Our team will contact you soon with detailed itinerary, payment instructions, and further information about your upcoming journey.</p>
-        </div>
-
-        <p style="font-size: 16px; margin-bottom: 30px;">Thank you for choosing us for your Indian adventure. We look forward to providing you with an unforgettable experience!</p>
-
-        <div style="text-align: center; border-top: 2px solid #007bff; padding-top: 20px;">
-            <p style="font-size: 16px; margin-bottom: 10px;"><strong>Best regards,</strong><br><strong>The Travelbullz Team</strong></p>
-            <img src="https://drive.google.com/uc?export=view&id=11TaZYK3zlW4z1OUSKPDMWVjfpSFhFO1E" alt="Travelbullz Logo" style="max-width: 150px; height: auto; margin: 10px 0;">
-            <p style="font-size: 12px; color: #666666; margin-top: 20px;">This is an automated confirmation email for The Great Indian RoadShow 2025.<br>For questions, please contact our support team.</p>
-            <p style="font-size: 11px; color: #999999; margin-top: 10px;">
-                To unsubscribe from future emails, please contact: unsubscribe@travelbullz.com<br>
-                Travelbullz | Address: Your Business Address | Phone: Your Phone Number
-            </p>
-        </div>
-    </div>
-</div>
-`;
-
-            return emailBody;
-        }
-
         // Function to navigate between pages
         function goToPage(pageNumber) {
-            // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-
-            // Show selected page
             document.getElementById(`page${pageNumber}`).classList.add('active');
-        }
-
-        // Function to send data to Google Sheets with email functionality
-        async function sendToGoogleSheets(data) {
-            try {
-                console.log('Sending data to Google Sheets:', data);
-
-                // Add email configuration to the data
-                data.ccEmail = EMAIL_CONFIG.CC_EMAIL;
-                data.emailSubject = EMAIL_CONFIG.SUBJECT;
-                data.emailBody = generateEmailContent(data);
-
-                console.log('Email config added:', {
-                    ccEmail: data.ccEmail,
-                    toEmail: data.email
-                });
-
-                // Try fetch first (more reliable)
-                try {
-                    const response = await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: new URLSearchParams(data)
-                    });
-
-                    console.log('Fetch submission completed');
-                    return { status: 'success' };
-                } catch (fetchError) {
-                    console.log('Fetch failed, trying form submission:', fetchError);
-
-                    // Fallback to form submission
-                    const form = document.createElement('form');
-                    form.method = 'POST';
-                    form.action = GOOGLE_SCRIPT_URL;
-                    form.target = 'hidden_iframe';
-                    form.style.display = 'none';
-
-                    // Add all form data as hidden inputs
-                    for (const [key, value] of Object.entries(data)) {
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = key;
-                        input.value = value || '';
-                        form.appendChild(input);
-                    }
-
-                    // Create hidden iframe to capture response
-                    let iframe = document.getElementById('hidden_iframe');
-                    if (!iframe) {
-                        iframe = document.createElement('iframe');
-                        iframe.name = 'hidden_iframe';
-                        iframe.id = 'hidden_iframe';
-                        iframe.style.display = 'none';
-                        iframe.onload = function () {
-                            console.log('Form submission completed');
-                        };
-                        document.body.appendChild(iframe);
-                    }
-
-                    // Submit form
-                    document.body.appendChild(form);
-                    console.log('Submitting form to:', GOOGLE_SCRIPT_URL);
-                    form.submit();
-                    document.body.removeChild(form);
-
-                    return { status: 'success' };
-                }
-
-            } catch (error) {
-                console.error('Error sending to Google Sheets:', error);
-                return { status: 'error', message: error.message };
-            }
         }
 
         // Handle form submission
@@ -1211,10 +1145,22 @@
                 { field: 'input[name="delhiairport"]:checked', message: 'Please select Delhi airport transfer option.' },
                 { field: 'input[name="Checkin"]:checked', message: 'Please select check-in date.' },
                 { field: 'input[name="earlyCheckin"]:checked', message: 'Please select early checkin option.' },
-                { field: 'input[name="bedtype"]:checked', message: 'Please select bed type.' },
                 { field: 'input[name="packageType"]:checked', message: 'Please select package type.' },
-                { field: 'input[name="hotelCategory"]:checked', message: 'Please select hotel category.' }
+                { field: 'input[name="hotelCategory"]:checked', message: 'Please select hotel category.' },
+                { field: 'input[name="noofrooms"]:checked', message: 'Please select number of rooms.' }
             ];
+
+            // Add dynamic room validation
+            const selectedRooms = document.querySelector('input[name="noofrooms"]:checked');
+            if (selectedRooms) {
+                const numRooms = parseInt(selectedRooms.value);
+                for (let i = 1; i <= numRooms; i++) {
+                    requiredValidations.push(
+                        { field: `input[name="noofadultsRoom${i}"]:checked`, message: `Please select number of adults for Room ${i}.` },
+                        { field: `input[name="bedtypeRoom${i}"]:checked`, message: `Please select bed type for Room ${i}.` }
+                    );
+                }
+            }
 
             for (let validation of requiredValidations) {
                 if (!document.querySelector(validation.field)) {
@@ -1233,44 +1179,37 @@
             const formDataObj = new FormData(this);
             formData = {};
 
-            // Get all form fields
             for (let [key, value] of formDataObj.entries()) {
                 formData[key] = value;
             }
 
-            // Add submission timestamp
             formData.submissionTime = new Date().toLocaleString();
 
-            // Log the data for testing
-            console.log('Form Data:', formData);
-            displayFormData();
+            // Prepare and send data
+            const submissionData = prepareDataForSubmission(formData);
+            console.log('Prepared data:', submissionData);
 
-            // Calculate and display amounts on thank you page
+            // Calculate and display amounts
             calculateAndDisplayAmounts();
 
-            // Send to Google Sheets with email
-            if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+            // Submit data (replace this with your actual submission logic)
+            if (SUBMISSION_URL !== 'YOUR_POWER_AUTOMATE_HTTP_TRIGGER_URL_HERE') {
                 try {
-                    const result = await sendToGoogleSheets(formData);
-
+                    const result = await sendToBackend(submissionData);
                     if (result.status === 'success') {
-                        console.log('Data successfully sent to Google Sheets and email sent!');
                         goToPage(3);
                     } else {
-                        console.error('Error sending to Google Sheets:', result.message);
-                        // Still go to thank you page since data was logged
-                        alert('Registration submitted! Data has been logged locally.');
+                        alert('Registration submitted locally. Please contact support.');
                         goToPage(3);
                     }
                 } catch (error) {
-                    console.error('Network error:', error);
-                    alert('Registration submitted! Data has been logged locally.');
+                    console.error('Submission error:', error);
+                    alert('Registration submitted locally. Please check your connection.');
                     goToPage(3);
                 }
             } else {
-                // If Google Script URL not set, just go to thank you page
-                console.log('Google Apps Script URL not set - form data logged to console');
-                alert('Form submitted! (Google Sheets integration not yet configured)');
+                console.log('Backend URL not configured - form data logged to console');
+                alert('Form submitted successfully! (Backend integration pending)');
                 goToPage(3);
             }
 
@@ -1279,44 +1218,9 @@
             submitBtn.disabled = false;
         });
 
-        // Function to display form data (for testing purposes)
-        function displayFormData() {
-            console.log('=== REGISTRATION DATA ===');
-            console.log('First Name:', formData.firstName);
-            console.log('Last Name:', formData.lastName);
-            console.log('Business/Organization:', formData.businessOrganization || 'Not provided');
-            console.log('Country Code:', formData.countryCode);
-            console.log('Mobile Number:', formData.mobileNumber);
-            console.log('Email:', formData.email);
-            console.log('Nationality:', formData.nationality);
-            console.log('Passport:', formData.passport);
-            console.log('Gender:', formData.gender);
-            console.log('Meal Preference:', formData.mealPreference);
-            console.log('Arrival Date Kolkata:', formData.arrivalDateKolkata);
-            console.log('ETA:', formData.eta || 'Not provided');
-            console.log('Arrival Flight Number:', formData.arrivalFlightNumber || 'Not provided');
-            console.log('Departure Date Delhi:', formData.departureDateDelhi);
-            console.log('ETD:', formData.etd || 'Not provided');
-            console.log('Departure Flight Number:', formData.departureFlightNumber || 'Not provided');
-            console.log('Kolkata Airport Transfer:', formData.kolkataairport);
-            console.log('Delhi Airport Transfer:', formData.delhiairport);
-            console.log('No. of Rooms:', formData.noofrooms);
-            console.log('No. of Adults:', formData.noofadults);
-            console.log('Bed Type:', formData.bedtype);
-            console.log('Check-in Date:', formData.Checkin);
-            console.log('Early Checkin:', formData.earlyCheckin);
-            console.log('Package Type:', formData.packageType);
-            console.log('Hotel Category:', formData.hotelCategory);
-            console.log('Package Price:', formData.packagePrice);
-            console.log('Submission Time:', formData.submissionTime);
-            console.log('========================');
-        }
-
-        // Set minimum date to today for all date fields
+        // Set minimum date to today for date fields
         const today = new Date().toISOString().split('T')[0];
-        const dateFields = [
-            'arrivalDateKolkata', 'departureDateDelhi'
-        ];
+        const dateFields = ['arrivalDateKolkata', 'departureDateDelhi'];
 
         dateFields.forEach(fieldId => {
             const field = document.getElementById(fieldId);
