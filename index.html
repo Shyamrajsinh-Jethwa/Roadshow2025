@@ -353,34 +353,49 @@
             border-left: 3px solid #2196f3;
         }
 
+        /* WhatsApp field styles */
+        .whatsapp-field-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .whatsapp-input-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .checkbox-same-number {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .checkbox-same-number input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+
         @media (max-width: 768px) {
             .page1 {
                 background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
                     url('./images/Media.jpg');
                 background-size: contain;
-                /* Keep contain to show full image */
                 background-position: center 20%;
-                /* Position image in upper portion */
                 background-repeat: no-repeat;
                 background-attachment: scroll;
                 justify-content: space-between;
-                /* Distribute space between image and button */
                 align-items: center;
                 flex-direction: column;
                 scale: 1;
                 padding: 1rem 1rem 2rem 1rem;
-                /* Add padding to prevent button overlap */
                 min-height: 100vh;
-                /* Ensure full height */
             }
 
-            /* Create space for the image at the top */
             .page1::before {
                 content: '';
                 flex: 1;
-                /* Take up space for image */
                 min-height: 60vh;
-                /* Reserve space for image */
             }
 
             .welcome-content {
@@ -390,19 +405,16 @@
                 justify-content: center;
                 align-items: center;
                 text-align: center;
-                /* Remove the background to keep it clean */
                 background: rgba(0, 0, 0, 0.4);
                 border-radius: 15px;
                 backdrop-filter: blur(3px);
                 margin-top: auto;
-                /* Push to bottom */
                 width: 100%;
                 max-width: 350px;
             }
 
             .welcome-content h1 {
                 font-size: 2rem;
-                /* Smaller to fit better */
                 margin-bottom: 1rem;
                 line-height: 1.2;
                 text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
@@ -416,7 +428,6 @@
                 margin: 1rem auto 0 auto;
                 display: block;
                 width: 260px;
-                /* Slightly smaller */
                 min-height: 50px;
                 font-size: 1.1rem;
                 scale: 1 !important;
@@ -431,7 +442,6 @@
                 background: linear-gradient(45deg, #0056b3, #003d82);
             }
 
-            /* Rest of your CSS remains the same... */
             .form-row {
                 flex-direction: column;
                 gap: 10px;
@@ -539,6 +549,11 @@
                 gap: 15px;
                 margin-top: 15px;
             }
+
+            .whatsapp-input-container {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
         /* Alternative approach - even simpler */
@@ -547,12 +562,8 @@
                 background: url('./images/Media.jpg');
                 background-size: contain;
                 background-position: center 15%;
-                /* Position image towards top */
                 background-repeat: no-repeat;
-                /* background-color: #f5f5f5; */
-                /* Add background color for empty spaces */
                 justify-content: flex-end;
-                /* Push content to bottom */
                 align-items: center;
                 flex-direction: column;
                 scale: 1;
@@ -567,7 +578,6 @@
                 align-items: center;
                 text-align: center;
                 background: rgba(255, 255, 255, 0.95);
-                /* White background instead */
                 border-radius: 15px;
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
                 margin: 1rem;
@@ -579,7 +589,6 @@
                 margin-bottom: 1rem;
                 line-height: 1.2;
                 color: #333;
-                /* Dark text on light background */
                 text-shadow: none;
             }
 
@@ -599,7 +608,6 @@
         @media (max-width: 480px) {
             .page1 {
                 background-position: center 10%;
-                /* Move image higher on small screens */
             }
 
             .welcome-content {
@@ -738,6 +746,88 @@
                         </div>
                     </div>
 
+                    <!-- WhatsApp Number Field -->
+                    <div class="form-group">
+                        <label for="whatsappNumber">WhatsApp Number <span class="required">*</span></label>
+                        <div class="whatsapp-field-container">
+                            <div class="whatsapp-input-container">
+                                <select id="whatsappCountryCode" name="whatsappCountryCode" style="flex: 0 0 120px;" required>
+                                    <option value="+93">🇦🇫 +93</option>
+                                    <option value="+355">🇦🇱 +355</option>
+                                    <option value="+213">🇩🇿 +213</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+376">🇦🇩 +376</option>
+                                    <option value="+244">🇦🇴 +244</option>
+                                    <option value="+54">🇦🇷 +54</option>
+                                    <option value="+374">🇦🇲 +374</option>
+                                    <option value="+61">🇦🇺 +61</option>
+                                    <option value="+43">🇦🇹 +43</option>
+                                    <option value="+994">🇦🇿 +994</option>
+                                    <option value="+973">🇧🇭 +973</option>
+                                    <option value="+880">🇧🇩 +880</option>
+                                    <option value="+32">🇧🇪 +32</option>
+                                    <option value="+55">🇧🇷 +55</option>
+                                    <option value="+359">🇧🇬 +359</option>
+                                    <option value="+855">🇰🇭 +855</option>
+                                    <option value="+1">🇨🇦 +1</option>
+                                    <option value="+86">🇨🇳 +86</option>
+                                    <option value="+45">🇩🇰 +45</option>
+                                    <option value="+20">🇪🇬 +20</option>
+                                    <option value="+33">🇫🇷 +33</option>
+                                    <option value="+49">🇩🇪 +49</option>
+                                    <option value="+30">🇬🇷 +30</option>
+                                    <option value="+852">🇭🇰 +852</option>
+                                    <option value="+36">🇭🇺 +36</option>
+                                    <option value="+91">🇮🇳 +91</option>
+                                    <option value="+62">🇮🇩 +62</option>
+                                    <option value="+98">🇮🇷 +98</option>
+                                    <option value="+964">🇮🇶 +964</option>
+                                    <option value="+353">🇮🇪 +353</option>
+                                    <option value="+972">🇮🇱 +972</option>
+                                    <option value="+39">🇮🇹 +39</option>
+                                    <option value="+81">🇯🇵 +81</option>
+                                    <option value="+962">🇯🇴 +962</option>
+                                    <option value="+7">🇰🇿 +7</option>
+                                    <option value="+254">🇰🇪 +254</option>
+                                    <option value="+82">🇰🇷 +82</option>
+                                    <option value="+965">🇰🇼 +965</option>
+                                    <option value="+856">🇱🇦 +856</option>
+                                    <option value="+60">🇲🇾 +60</option>
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+95">🇲🇲 +95</option>
+                                    <option value="+977">🇳🇵 +977</option>
+                                    <option value="+31">🇳🇱 +31</option>
+                                    <option value="+64">🇳🇿 +64</option>
+                                    <option value="+47">🇳🇴 +47</option>
+                                    <option value="+92">🇵🇰 +92</option>
+                                    <option value="+63">🇵🇭 +63</option>
+                                    <option value="+48">🇵🇱 +48</option>
+                                    <option value="+351">🇵🇹 +351</option>
+                                    <option value="+974">🇶🇦 +974</option>
+                                    <option value="+7">🇷🇺 +7</option>
+                                    <option value="+966">🇸🇦 +966</option>
+                                    <option value="+65">🇸🇬 +65</option>
+                                    <option value="+27">🇿🇦 +27</option>
+                                    <option value="+34">🇪🇸 +34</option>
+                                    <option value="+94">🇱🇰 +94</option>
+                                    <option value="+46">🇸🇪 +46</option>
+                                    <option value="+41">🇨🇭 +41</option>
+                                    <option value="+66" selected>🇹🇭 +66</option>
+                                    <option value="+90">🇹🇷 +90</option>
+                                    <option value="+971">🇦🇪 +971</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+84">🇻🇳 +84</option>
+                                </select>
+                                <input type="tel" id="whatsappNumber" name="whatsappNumber" placeholder="WhatsApp number"
+                                    style="flex: 1;" required>
+                            </div>
+                            <div class="checkbox-same-number">
+                                <input type="checkbox" id="sameAsMobile" name="sameAsMobile" onchange="copySameNumber()">
+                                <label for="sameAsMobile">Same as mobile number</label>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="nationality">Nationality <span class="required">*</span></label>
@@ -749,6 +839,12 @@
                             <input type="text" id="passport" name="passport" placeholder="Enter your Passport number"
                                 required>
                         </div>
+                    </div>
+
+                    <!-- Passport Expiry Date -->
+                    <div class="form-group">
+                        <label for="passportExpiry">Passport Expiry Date <span class="required">*</span></label>
+                        <input type="date" id="passportExpiry" name="passportExpiry" required>
                     </div>
 
                     <div class="form-group">
@@ -875,33 +971,37 @@
                     </div>
                 </div>
 
-                <!-- Accommodation Section with Dynamic Rooms -->
+                <!-- Simplified Accommodation Section -->
                 <div class="form-section">
                     <div class="section-title">Accommodation Information</div>
 
                     <div class="form-group">
-                        <label>No. of Rooms <span class="required">*</span></label>
+                        <label>Room Requirement <span class="required">*</span></label>
                         <div class="radio-group">
                             <div class="radio-item">
-                                <input type="radio" id="rooms1" name="noofrooms" value="1" required
-                                    onchange="updateRoomDetails()">
-                                <label for="rooms1">1 Room</label>
+                                <input type="radio" id="single" name="roomRequirement" value="Single" required>
+                                <label for="single">Single</label>
                             </div>
                             <div class="radio-item">
-                                <input type="radio" id="rooms2" name="noofrooms" value="2" required
-                                    onchange="updateRoomDetails()">
-                                <label for="rooms2">2 Rooms</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="rooms3" name="noofrooms" value="3" required
-                                    onchange="updateRoomDetails()">
-                                <label for="rooms3">3 Rooms</label>
+                                <input type="radio" id="sharing" name="roomRequirement" value="Sharing" required>
+                                <label for="sharing">Sharing</label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Dynamic Room Details Container -->
-                    <div id="roomDetailsContainer"></div>
+                    <div class="form-group">
+                        <label>Bed Type <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="king" name="bedType" value="King" required>
+                                <label for="king">King</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="twin" name="bedType" value="Twin" required>
+                                <label for="twin">Twin</label>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <div class="price-field-container">
@@ -961,10 +1061,10 @@
 
                     <div class="form-group">
                         <label>Package Type (Breakfast incl.) <span class="required">*</span></label>
-                        <label class="form-italic">Kolkata 5-star Hotel</label>
-                        <label class="form-italic">Amritsar 4-star Hotel</label>
-                        <label class="form-italic">Ludhiana 5-star Hotel</label>
-                        <label class="form-italic">Delhi 4-star or 5-star Hotel</label>
+                        <label class="form-italic">Kolkata Hotel: The Lalit Great Eastern (5-star)</label>
+                        <label class="form-italic">Amritsar Hotel: TBA (4-star)</label>
+                        <label class="form-italic">Ludhiana Hotel: Radisson Blu Hotel (5-star)</label>
+                        <label class="form-italic">Delhi Hotel: Hotel The Royal Plaza (4-Star) or Shangri-La Eros (5-Star)</label>
                         <div class="radio-group">
                             <div class="radio-item">
                                 <input type="radio" id="package4nights" name="packageType" value="4 Nights / 5 Days"
@@ -1050,62 +1150,23 @@
             }
         };
 
-        // Function to dynamically update room details based on selection
-        function updateRoomDetails() {
-            const selectedRooms = document.querySelector('input[name="noofrooms"]:checked');
-            const container = document.getElementById('roomDetailsContainer');
+        // Function to copy mobile number to WhatsApp field
+        function copySameNumber() {
+            const sameAsMobile = document.getElementById('sameAsMobile');
+            const mobileCountryCode = document.getElementById('countryCode');
+            const mobileNumber = document.getElementById('mobileNumber');
+            const whatsappCountryCode = document.getElementById('whatsappCountryCode');
+            const whatsappNumber = document.getElementById('whatsappNumber');
 
-            if (!selectedRooms) {
-                container.innerHTML = '';
-                return;
+            if (sameAsMobile.checked) {
+                whatsappCountryCode.value = mobileCountryCode.value;
+                whatsappNumber.value = mobileNumber.value;
+                whatsappCountryCode.disabled = true;
+                whatsappNumber.disabled = true;
+            } else {
+                whatsappCountryCode.disabled = false;
+                whatsappNumber.disabled = false;
             }
-
-            const numRooms = parseInt(selectedRooms.value);
-            let html = '';
-
-            for (let i = 1; i <= numRooms; i++) {
-                html += `
-                <div class="conditional-section" id="room${i}Details">
-                    <h4 style="color: #007bff; margin-bottom: 15px;">Room ${i} Details</h4>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>No. of Adults - Room ${i} <span class="required">*</span></label>
-                            <div class="radio-group">
-                                <div class="radio-item">
-                                    <input type="radio" id="adults${i}_1" name="noofadultsRoom${i}" value="1" required>
-                                    <label for="adults${i}_1">1 Adult</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="adults${i}_2" name="noofadultsRoom${i}" value="2" required>
-                                    <label for="adults${i}_2">2 Adults</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="adults${i}_3" name="noofadultsRoom${i}" value="3" required>
-                                    <label for="adults${i}_3">3 Adults</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Bed Type - Room ${i} <span class="required">*</span></label>
-                            <div class="radio-group">
-                                <div class="radio-item">
-                                    <input type="radio" id="bed${i}_king" name="bedtypeRoom${i}" value="King" required>
-                                    <label for="bed${i}_king">King</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" id="bed${i}_twin" name="bedtypeRoom${i}" value="Twin" required>
-                                    <label for="bed${i}_twin">Twin</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `;
-            }
-
-            container.innerHTML = html;
         }
 
         // Function to calculate package price
@@ -1172,8 +1233,6 @@
 
         // Function to prepare data for submission
         function prepareDataForSubmission(formData) {
-            const numRooms = formData.noofrooms ? parseInt(formData.noofrooms) : 0;
-
             return {
                 timestamp: new Date().toISOString(),
                 firstName: formData.firstName || '',
@@ -1181,9 +1240,12 @@
                 businessOrganization: formData.businessOrganization || '',
                 countryCode: formData.countryCode || '',
                 mobileNumber: formData.mobileNumber || '',
+                whatsappCountryCode: formData.whatsappCountryCode || '',
+                whatsappNumber: formData.whatsappNumber || '',
                 email: formData.email || '',
                 nationality: formData.nationality || '',
                 passport: formData.passport || '',
+                passportExpiry: formData.passportExpiry || '',
                 gender: formData.gender || '',
                 mealPreference: formData.mealPreference || '',
                 arrivalDateKolkata: formData.arrivalDateKolkata || '',
@@ -1196,13 +1258,8 @@
                 kolkataAirportPrice: formData.kolkataairport === 'Yes' ? '950' : '',
                 delhiAirport: formData.delhiairport || '',
                 delhiAirportPrice: formData.delhiairport === 'Yes' ? '1050' : '',
-                noOfRooms: formData.noofrooms || '',
-                noOfAdultsRoom1: numRooms >= 1 ? formData.noofadultsRoom1 || '' : '',
-                bedTypeRoom1: numRooms >= 1 ? formData.bedtypeRoom1 || '' : '',
-                noOfAdultsRoom2: numRooms >= 2 ? formData.noofadultsRoom2 || '' : '',
-                bedTypeRoom2: numRooms >= 2 ? formData.bedtypeRoom2 || '' : '',
-                noOfAdultsRoom3: numRooms >= 3 ? formData.noofadultsRoom3 || '' : '',
-                bedTypeRoom3: numRooms >= 3 ? formData.bedtypeRoom3 || '' : '',
+                roomRequirement: formData.roomRequirement || '',
+                bedType: formData.bedType || '',
                 checkinDate: formData.Checkin || '',
                 checkinPrice: formData.Checkin === '17 August' ? '3300' : '',
                 earlyCheckin: formData.earlyCheckin || '',
@@ -1381,20 +1438,9 @@
                 { field: 'input[name="earlyCheckin"]:checked', message: 'Please select early checkin option.' },
                 { field: 'input[name="packageType"]:checked', message: 'Please select package type.' },
                 { field: 'input[name="hotelCategory"]:checked', message: 'Please select hotel category.' },
-                { field: 'input[name="noofrooms"]:checked', message: 'Please select number of rooms.' }
+                { field: 'input[name="roomRequirement"]:checked', message: 'Please select room requirement.' },
+                { field: 'input[name="bedType"]:checked', message: 'Please select bed type.' }
             ];
-
-            // Add dynamic room validation
-            const selectedRooms = document.querySelector('input[name="noofrooms"]:checked');
-            if (selectedRooms) {
-                const numRooms = parseInt(selectedRooms.value);
-                for (let i = 1; i <= numRooms; i++) {
-                    requiredValidations.push(
-                        { field: `input[name="noofadultsRoom${i}"]:checked`, message: `Please select number of adults for Room ${i}.` },
-                        { field: `input[name="bedtypeRoom${i}"]:checked`, message: `Please select bed type for Room ${i}.` }
-                    );
-                }
-            }
 
             for (let validation of requiredValidations) {
                 if (!document.querySelector(validation.field)) {
@@ -1454,7 +1500,7 @@
 
         // Set minimum date to today for date fields
         const today = new Date().toISOString().split('T')[0];
-        const dateFields = ['arrivalDateKolkata', 'departureDateDelhi'];
+        const dateFields = ['arrivalDateKolkata', 'departureDateDelhi', 'passportExpiry'];
 
         dateFields.forEach(fieldId => {
             const field = document.getElementById(fieldId);
@@ -1466,6 +1512,21 @@
         // Update departure date minimum when arrival date changes
         document.getElementById('arrivalDateKolkata').addEventListener('change', function () {
             document.getElementById('departureDateDelhi').setAttribute('min', this.value);
+        });
+
+        // Auto-copy mobile number when typing and "same as mobile" is checked
+        document.getElementById('mobileNumber').addEventListener('input', function() {
+            const sameAsMobile = document.getElementById('sameAsMobile');
+            if (sameAsMobile.checked) {
+                document.getElementById('whatsappNumber').value = this.value;
+            }
+        });
+
+        document.getElementById('countryCode').addEventListener('change', function() {
+            const sameAsMobile = document.getElementById('sameAsMobile');
+            if (sameAsMobile.checked) {
+                document.getElementById('whatsappCountryCode').value = this.value;
+            }
         });
     </script>
 </body>
